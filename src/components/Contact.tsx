@@ -39,8 +39,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'contato@lacus.com.br',
-      link: 'mailto:contato@lacus.com.br'
+      content: 'contato@laucs.com.br',
+      link: 'mailto:contato@laucs.com.br'
     },
     {
       icon: Phone,
@@ -96,7 +96,7 @@ const Contact = () => {
 
               {/* Benefits */}
               <div className="bg-muted/50 p-6 rounded-lg">
-                <h4 className="font-bold mb-4">Por que escolher a Lacus?</h4>
+                <h4 className="font-bold mb-4">Por que escolher a Laucs?</h4>
                 <div className="space-y-3">
                   {[
                     'Consultoria gratuita inicial',
