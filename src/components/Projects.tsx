@@ -73,8 +73,13 @@ const Projects = () => {
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category}`}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="400"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute top-4 left-4 bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                     {project.category}
