@@ -1,6 +1,19 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+// SEO: Prevent indexing of 404 page
+if (typeof document !== 'undefined') {
+  const metaRobots = document.querySelector('meta[name="robots"]');
+  if (metaRobots) {
+    metaRobots.setAttribute('content', 'noindex,nofollow');
+  } else {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex,nofollow';
+    document.head.appendChild(meta);
+  }
+}
+
 const NotFound = () => {
   const location = useLocation();
 
