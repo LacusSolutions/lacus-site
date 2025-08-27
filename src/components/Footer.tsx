@@ -6,7 +6,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: '#', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contato@techsolutions.com.br', label: 'Email' },
+    { icon: Mail, href: 'mailto:contato@laucs.com.br', label: 'Email' },
     { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' }
   ];
 
@@ -36,7 +36,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-                TechSolutions
+                Laucs
               </div>
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
                 Transformamos ideias em soluções tecnológicas inovadoras. 
@@ -95,7 +95,7 @@ const Footer = () => {
           <div className="border-t border-secondary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-secondary-foreground/60 text-sm">
-                © {currentYear} TechSolutions. Todos os direitos reservados.
+                © {currentYear} Laucs. Todos os direitos reservados.
               </p>
               
               <div className="flex gap-6 text-sm">
