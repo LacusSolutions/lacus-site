@@ -1,7 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 
 const Hero = () => {
+  const { ref: badgeRef, isInView: badgeInView } = useInView({ threshold: 0.3 });
+  const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3 });
+  const { ref: subtitleRef, isInView: subtitleInView } = useInView({ threshold: 0.3 });
+  const { ref: buttonsRef, isInView: buttonsInView } = useInView({ threshold: 0.3 });
+  const { ref: featuresRef, isInView: featuresInView } = useInView({ threshold: 0.3 });
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background Image */}
@@ -14,25 +21,45 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8 border border-primary/20">
+          <div 
+            ref={badgeRef}
+            className={`inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8 border border-primary/20 transition-all duration-700 ${
+              badgeInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
+            }`}
+          >
             <Zap size={16} />
             Soluções Tecnológicas Inovadoras
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 
+            ref={titleRef}
+            className={`text-5xl md:text-7xl font-bold text-white mb-6 leading-tight transition-all duration-700 delay-200 ${
+              titleInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             Transformamos
             <span className="bg-gradient-primary bg-clip-text text-transparent"> Ideias </span>
             em Software
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p 
+            ref={subtitleRef}
+            className={`text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${
+              subtitleInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
+            }`}
+          >
             Desenvolvemos soluções customizadas que impulsionam o crescimento do seu negócio com tecnologia de ponta e inovação.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div 
+            ref={buttonsRef}
+            className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-700 delay-500 ${
+              buttonsInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <Button variant="hero" size="lg" asChild>
               <a href="#contato" className="group">
                 Iniciar Projeto
@@ -45,7 +72,12 @@ const Hero = () => {
           </div>
 
           {/* Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+          <div 
+            ref={featuresRef}
+            className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto transition-all duration-700 delay-700 ${
+              featuresInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <div className="flex flex-col items-center text-center text-white/80">
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Code className="text-primary" size={32} />

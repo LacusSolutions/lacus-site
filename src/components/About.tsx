@@ -1,6 +1,11 @@
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 
 const About = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: statsRef, isInView: statsInView } = useInView();
+  const { ref: contentRef, isInView: contentInView } = useInView();
+
   const stats = [
     { icon: Users, label: 'Clientes Atendidos', value: '150+' },
     { icon: Target, label: 'Projetos Entregues', value: '300+' },
@@ -13,7 +18,12 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Sobre a <span className="font-poppins font-bold text-[#333333]">Lacus</span>
             </h2>
@@ -23,57 +33,80 @@ const About = () => {
             </p>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Nossa Missão</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Capacitar empresas através da tecnologia, desenvolvendo soluções sob medida que 
-                otimizam processos, aumentam a eficiência e impulsionam o crescimento sustentável 
-                dos nossos clientes.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Com uma equipe experiente e apaixonada por inovação, trabalhamos lado a lado 
-                com nossos parceiros para entender suas necessidades específicas e entregar 
-                resultados excepcionais.
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-card p-6 rounded-lg shadow-card border">
-                <h4 className="text-lg font-semibold mb-3 text-primary">Experiência Comprovada</h4>
-                <p className="text-muted-foreground">
-                  Mais de 8 anos desenvolvendo soluções para diversos segmentos, desde startups até grandes corporações.
-                </p>
-              </div>
-              
-              <div className="bg-card p-6 rounded-lg shadow-card border">
-                <h4 className="text-lg font-semibold mb-3 text-primary">Tecnologia de Ponta</h4>
-                <p className="text-muted-foreground">
-                  Utilizamos as mais modernas tecnologias e metodologias ágeis para garantir qualidade e agilidade.
-                </p>
-              </div>
-              
-              <div className="bg-card p-6 rounded-lg shadow-card border">
-                <h4 className="text-lg font-semibold mb-3 text-primary">Suporte Contínuo</h4>
-                <p className="text-muted-foreground">
-                  Oferecemos suporte técnico especializado e manutenção contínua para todos os nossos projetos.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div 
+            ref={statsRef}
+            className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 transition-all duration-700 delay-200 ${
+              statsInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-gradient-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                  <stat.icon className="text-white" size={32} />
+              <div 
+                key={index} 
+                className={`text-center group transition-all duration-500 delay-${index * 100}`}
+              >
+                <div className="bg-gradient-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="text-white w-8 h-8" />
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-muted-foreground font-medium">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Content */}
+          <div 
+            ref={contentRef}
+            className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 delay-400 ${
+              contentInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            {/* Mission */}
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold">
+                Nossa <span className="bg-gradient-primary bg-clip-text text-transparent">Missão</span>
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas 
+                que se adaptam perfeitamente às necessidades específicas de cada cliente. 
+                Acreditamos que a tecnologia deve servir ao negócio, não o contrário.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Inovação Constante:</strong> Mantemo-nos atualizados com as últimas tecnologias
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Qualidade Garantida:</strong> Rigorosos processos de teste e validação
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                  <p className="text-muted-foreground">
+                    <strong className="text-foreground">Suporte Dedicado:</strong> Acompanhamento completo antes, durante e após o projeto
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Experience */}
+            <div className="bg-muted/50 p-8 rounded-lg">
+              <h4 className="text-xl font-bold mb-6">Experiência Comprovada</h4>
+              <div className="space-y-4">
+                <p className="text-muted-foreground">
+                  Com mais de <strong className="text-primary">5 anos</strong> no mercado, 
+                  já entregamos soluções para empresas de diversos segmentos.
+                </p>
+                <p className="text-muted-foreground">
+                  Nossa equipe combina expertise técnica com visão de negócio, 
+                  garantindo que cada projeto agregue valor real ao cliente.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
