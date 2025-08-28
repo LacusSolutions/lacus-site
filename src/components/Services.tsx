@@ -1,7 +1,12 @@
 import { Smartphone, Globe, Database, Cog, Cloud, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useInView } from '@/hooks/useInView';
 
 const Services = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: gridRef, isInView: gridInView } = useInView();
+  const { ref: ctaRef, isInView: ctaInView } = useInView();
+
   const services = [
     {
       icon: Globe,
@@ -46,7 +51,12 @@ const Services = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nossos <span className="bg-gradient-primary bg-clip-text text-transparent">Serviços</span>
             </h2>
@@ -57,11 +67,22 @@ const Services = () => {
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div 
+            ref={gridRef}
+            className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 transition-all duration-700 delay-200 ${
+              gridInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className="group bg-card p-8 rounded-lg shadow-card border hover:shadow-primary/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className={`group bg-card p-8 rounded-lg shadow-card border hover:shadow-primary/20 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
+                  gridInView ? `animate-slide-in-up` : 'opacity-0 translate-y-8'
+                }`}
+                style={{ 
+                  animationDelay: gridInView ? `${index * 100 + 300}ms` : '0ms',
+                  animationFillMode: 'both'
+                }}
               >
                 <div className="bg-gradient-primary p-3 rounded-lg w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
                   <service.icon className="text-white" size={28} />
@@ -88,7 +109,12 @@ const Services = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center">
+          <div 
+            ref={ctaRef}
+            className={`text-center transition-all duration-700 delay-500 ${
+              ctaInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <Button variant="hero" size="lg" asChild>
               <a href="#contato">Solicitar Orçamento</a>
             </Button>

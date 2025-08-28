@@ -1,7 +1,12 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useInView } from '@/hooks/useInView';
 
 const Projects = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: gridRef, isInView: gridInView } = useInView();
+  const { ref: ctaRef, isInView: ctaInView } = useInView();
+
   const projects = [
     {
       title: 'Sistema ERP Corporativo',
@@ -52,7 +57,12 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Nossos <span className="bg-gradient-primary bg-clip-text text-transparent">Projetos</span>
             </h2>
@@ -63,11 +73,22 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div 
+            ref={gridRef}
+            className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 transition-all duration-700 delay-200 ${
+              gridInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
+            }`}
+          >
             {projects.map((project, index) => (
               <div 
                 key={index} 
-                className="group bg-card rounded-lg shadow-card border overflow-hidden hover:shadow-primary/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className={`group bg-card rounded-lg shadow-card border overflow-hidden hover:shadow-primary/20 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
+                  gridInView ? 'animate-slide-in-left' : 'opacity-0 translate-x-8'
+                }`}
+                style={{ 
+                  animationDelay: gridInView ? `${index * 150 + 300}ms` : '0ms',
+                  animationFillMode: 'both'
+                }}
               >
                 {/* Image */}
                 <div className="relative overflow-hidden">
@@ -124,7 +145,12 @@ const Projects = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center">
+          <div 
+            ref={ctaRef}
+            className={`text-center transition-all duration-700 delay-500 ${
+              ctaInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <p className="text-muted-foreground mb-6">
               Interessado em ver mais projetos ou discutir seu próximo projeto?
             </p>

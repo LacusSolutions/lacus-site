@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useInView } from '@/hooks/useInView';
 
 const Contact = () => {
+  const { ref: headerRef, isInView: headerInView } = useInView();
+  const { ref: contentRef, isInView: contentInView } = useInView();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,7 +65,12 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-700 ${
+              headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Entre em <span className="bg-gradient-primary bg-clip-text text-transparent">Contato</span>
             </h2>
@@ -70,7 +79,12 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div 
+            ref={contentRef}
+            className={`grid lg:grid-cols-2 gap-16 transition-all duration-700 delay-300 ${
+              contentInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
+            }`}
+          >
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold mb-8">Fale Conosco</h3>
