@@ -96,7 +96,7 @@ const Contact = () => {
 
               {/* Benefits */}
               <div className="bg-muted/50 p-6 rounded-lg">
-                <h4 className="font-bold mb-4">Por que escolher a Lacus?</h4>
+                <h4 className="font-bold mb-4">Por que escolher a <span className="font-poppins font-bold text-[#333333]">Lacus</span>?</h4>
                 <div className="space-y-3">
                   {[
                     'Consultoria gratuita inicial',
