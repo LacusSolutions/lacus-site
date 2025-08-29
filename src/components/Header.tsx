@@ -18,8 +18,11 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-2xl font-poppins font-bold text-[#333333]">
-            Lacus
+          <div className="flex items-center gap-3">
+            <img src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" alt="Lacus Logo" className="w-8 h-8" />
+            <div className="text-2xl font-poppins font-bold text-lacus-brand">
+              Lacus
+            </div>
           </div>
 
           {/* Desktop Navigation */}
