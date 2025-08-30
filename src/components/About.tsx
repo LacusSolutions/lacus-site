@@ -1,16 +1,18 @@
+import { useTranslation } from 'react-i18next';
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 
 const About = () => {
+  const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: statsRef, isInView: statsInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
 
   const stats = [
-    { icon: Users, label: 'Clientes Atendidos', value: '150+' },
-    { icon: Target, label: 'Projetos Entregues', value: '300+' },
-    { icon: Award, label: 'Anos de Experiência', value: '8+' },
-    { icon: TrendingUp, label: 'Taxa de Sucesso', value: '98%' },
+    { icon: Users, label: t('about.stats.clients'), value: '150+' },
+    { icon: Target, label: t('about.stats.projects'), value: '300+' },
+    { icon: Award, label: t('about.stats.experience'), value: '8+' },
+    { icon: TrendingUp, label: t('about.stats.success'), value: '98%' },
   ];
 
   return (
@@ -25,11 +27,10 @@ const About = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Sobre a <span className="font-poppins font-bold text-[#333333]">Lacus</span>
+              {t('about.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Somos uma empresa especializada em desenvolvimento de software customizado, 
-              transformando desafios complexos em soluções tecnológicas inovadoras.
+              {t('about.subtitle')}
             </p>
           </div>
 

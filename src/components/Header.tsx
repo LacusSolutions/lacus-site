@@ -1,16 +1,19 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { href: '#inicio', label: 'Início' },
-    { href: '#sobre', label: 'Sobre' },
-    { href: '#servicos', label: 'Serviços' },
-    { href: '#projetos', label: 'Projetos' },
-    { href: '#contato', label: 'Contato' },
+    { href: '#inicio', label: t('nav.home') },
+    { href: '#sobre', label: t('nav.about') },
+    { href: '#servicos', label: t('nav.services') },
+    { href: '#projetos', label: t('nav.projects') },
+    { href: '#contato', label: t('nav.contact') },
   ];
 
   return (
@@ -38,10 +41,11 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Switcher & CTA Button */}
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
             <Button variant="outline" asChild>
-              <a href="#contato">Fale Conosco</a>
+              <a href="#contato">{t('nav.talk_to_us')}</a>
             </Button>
           </div>
 
@@ -68,9 +72,12 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="outline" asChild className="w-fit">
-                <a href="#contato">Fale Conosco</a>
-              </Button>
+              <div className="flex items-center gap-4">
+                <LanguageSwitcher />
+                <Button variant="outline" asChild className="w-fit">
+                  <a href="#contato">{t('nav.talk_to_us')}</a>
+                </Button>
+              </div>
             </div>
           </nav>
         )}

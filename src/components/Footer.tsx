@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -11,11 +13,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: 'Início', href: '#inicio' },
-    { label: 'Sobre', href: '#sobre' },
-    { label: 'Serviços', href: '#servicos' },
-    { label: 'Projetos', href: '#projetos' },
-    { label: 'Contato', href: '#contato' }
+    { label: t('nav.home'), href: '#inicio' },
+    { label: t('nav.about'), href: '#sobre' },
+    { label: t('nav.services'), href: '#servicos' },
+    { label: t('nav.projects'), href: '#projetos' },
+    { label: t('nav.contact'), href: '#contato' }
   ];
 
   const services = [
@@ -42,9 +44,7 @@ const Footer = () => {
                 </div>
               </div>
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
-                Transformamos ideias em soluções tecnológicas inovadoras. 
-                Especializados em desenvolvimento de software customizado 
-                para impulsionar o crescimento do seu negócio.
+                {t('footer.description')}
               </p>
               
               {/* Social Links */}
@@ -64,7 +64,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-bold text-lg mb-6">Links Rápidos</h3>
+              <h3 className="font-bold text-lg mb-6">{t('footer.quick_links')}</h3>
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
@@ -81,7 +81,7 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h3 className="font-bold text-lg mb-6">Serviços</h3>
+              <h3 className="font-bold text-lg mb-6">{t('footer.services_title')}</h3>
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <li key={index}>
@@ -101,15 +101,15 @@ const Footer = () => {
                 © {currentYear} <span className="inline-flex items-center gap-2 font-poppins font-bold text-lacus-brand">
                   <img src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" alt="Lacus Logo" className="w-4 h-4" />
                   Lacus
-                </span>. Todos os direitos reservados.
+                </span>. {t('footer.copyright')}
               </p>
               
               <div className="flex gap-6 text-sm">
                 <a href="#" className="text-secondary-foreground/60 hover:text-primary transition-colors">
-                  Política de Privacidade
+                  {t('footer.privacy')}
                 </a>
                 <a href="#" className="text-secondary-foreground/60 hover:text-primary transition-colors">
-                  Termos de Uso
+                  {t('footer.terms')}
                 </a>
               </div>
             </div>

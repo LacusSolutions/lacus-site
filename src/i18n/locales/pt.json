@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "services": "Serviços",
+    "projects": "Projetos",
+    "contact": "Contato",
+    "talk_to_us": "Fale Conosco"
+  },
+  "hero": {
+    "badge": "Soluções Tecnológicas Inovadoras",
+    "title": "Transformamos",
+    "title_highlight": "Ideias",
+    "title_end": "em Software",
+    "subtitle": "Desenvolvemos soluções customizadas que impulsionam o crescimento do seu negócio com tecnologia de ponta e inovação.",
+    "cta_primary": "Iniciar Projeto",
+    "cta_secondary": "Ver Nossos Projetos",
+    "feature_1_title": "Desenvolvimento Customizado",
+    "feature_1_desc": "Soluções sob medida para suas necessidades específicas",
+    "feature_2_title": "Tecnologia Moderna",
+    "feature_2_desc": "Utilizamos as mais recentes tecnologias do mercado",
+    "feature_3_title": "Segurança Garantida",
+    "feature_3_desc": "Desenvolvimento focado em segurança e performance"
+  },
+  "about": {
+    "title": "Sobre a Lacus",
+    "subtitle": "Inovação e excelência em cada projeto que desenvolvemos",
+    "description": "Somos uma empresa de tecnologia especializada em criar soluções de software personalizadas. Com anos de experiência no mercado, ajudamos empresas de todos os tamanhos a transformar suas ideias em produtos digitais inovadores.",
+    "experience_desc": "Nossa equipe de especialistas combina conhecimento técnico com visão de mercado para entregar soluções que realmente fazem a diferença nos negócios de nossos clientes. Acreditamos que a tecnologia deve ser acessível e trazer resultados reais.",
+    "stats": {
+      "clients": "Clientes Satisfeitos",
+      "projects": "Projetos Concluídos",
+      "experience": "Anos de Experiência", 
+      "success": "Taxa de Sucesso"
+    }
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "subtitle": "Soluções completas para sua transformação digital",
+    "web_dev": {
+      "title": "Desenvolvimento Web",
+      "description": "Sites e aplicações web modernas e responsivas utilizando as mais recentes tecnologias.",
+      "features": [
+        "Design Responsivo",
+        "Tecnologias Modernas",
+        "Otimização SEO",
+        "Alta Performance"
+      ]
+    },
+    "mobile_dev": {
+      "title": "Desenvolvimento Mobile",
+      "description": "Aplicações móveis nativas e híbridas para plataformas iOS e Android.",
+      "features": [
+        "Cross-platform",
+        "Interface Intuitiva",
+        "Notificações Push",
+        "Funcionalidade Offline"
+      ]
+    },
+    "api_dev": {
+      "title": "Desenvolvimento de APIs",
+      "description": "APIs robustas e escaláveis para integrar sistemas e aplicações.",
+      "features": [
+        "APIs RESTful",
+        "Integração em Tempo Real",
+        "Documentação Completa",
+        "Segurança Avançada"
+      ]
+    },
+    "cta": "Solicitar Orçamento"
+  },
+  "projects": {
+    "title": "Nossos Projetos",
+    "subtitle": "Algumas das soluções que desenvolvemos para nossos clientes",
+    "categories": {
+      "web": "Plataforma Web",
+      "mobile": "App Mobile",
+      "api": "Integração API"
+    },
+    "actions": {
+      "view_live": "Ver Online",
+      "view_code": "Ver Código"
+    },
+    "cta_title": "Pronto para começar seu projeto?",
+    "cta_subtitle": "Vamos transformar sua ideia em realidade juntos",
+    "cta_button": "Começar Agora"
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Pronto para iniciar seu projeto? Vamos conversar!",
+    "info": {
+      "email": "Email",
+      "phone": "Telefone",
+      "address": "Endereço"
+    },
+    "benefits": {
+      "title": "Por que escolher a Lacus?",
+      "items": [
+        "Consulta gratuita e análise detalhada",
+        "Desenvolvimento ágil com feedback constante",
+        "Suporte contínuo e manutenção",
+        "Preços competitivos e formas de pagamento flexíveis"
+      ]
+    },
+    "form": {
+      "name": "Nome Completo",
+      "name_placeholder": "Digite seu nome completo",
+      "email": "Email",
+      "email_placeholder": "Digite seu email",
+      "company": "Empresa",
+      "company_placeholder": "Digite o nome da sua empresa",
+      "message": "Mensagem",
+      "message_placeholder": "Conte-nos sobre seu projeto...",
+      "submit": "Enviar Mensagem",
+      "sending": "Enviando...",
+      "success": "Mensagem enviada com sucesso! Entraremos em contato em breve."
+    }
+  },
+  "footer": {
+    "description": "Desenvolvemos soluções tecnológicas inovadoras que transformam ideias em produtos digitais de sucesso.",
+    "quick_links": "Links Rápidos",
+    "services_title": "Serviços",
+    "copyright": "Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Uso"
+  }
+}

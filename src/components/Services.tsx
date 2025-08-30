@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Smartphone, Globe, Database, Cog, Cloud, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useInView } from '@/hooks/useInView';
 
 const Services = () => {
+  const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: gridRef, isInView: gridInView } = useInView();
   const { ref: ctaRef, isInView: ctaInView } = useInView();
@@ -10,39 +12,21 @@ const Services = () => {
   const services = [
     {
       icon: Globe,
-      title: 'Desenvolvimento Web',
-      description: 'Criamos aplicações web modernas, responsivas e de alta performance utilizando as mais recentes tecnologias.',
-      features: ['React/Next.js', 'Node.js', 'TypeScript', 'APIs RESTful']
+      title: t('services.web_dev.title'),
+      description: t('services.web_dev.description'),
+      features: t('services.web_dev.features', { returnObjects: true }) as string[]
     },
     {
       icon: Smartphone,
-      title: 'Aplicativos Mobile',
-      description: 'Desenvolvemos apps nativos e híbridos para iOS e Android com foco na experiência do usuário.',
-      features: ['React Native', 'Flutter', 'iOS/Android', 'App Store Deploy']
+      title: t('services.mobile_dev.title'),
+      description: t('services.mobile_dev.description'),
+      features: t('services.mobile_dev.features', { returnObjects: true }) as string[]
     },
     {
       icon: Database,
-      title: 'Sistemas Customizados',
-      description: 'Soluções sob medida para automatizar processos específicos do seu negócio e aumentar a produtividade.',
-      features: ['ERP/CRM', 'Automação', 'Integração', 'Business Intelligence']
-    },
-    {
-      icon: Cloud,
-      title: 'Cloud Computing',
-      description: 'Migração e desenvolvimento de soluções em nuvem para escalabilidade e eficiência operacional.',
-      features: ['AWS/Azure', 'DevOps', 'Microserviços', 'Containerização']
-    },
-    {
-      icon: Cog,
-      title: 'Consultoria Tech',
-      description: 'Orientação estratégica em tecnologia para otimizar investimentos e acelerar a transformação digital.',
-      features: ['Arquitetura', 'Estratégia', 'Code Review', 'Mentoria']
-    },
-    {
-      icon: Shield,
-      title: 'Segurança Digital',
-      description: 'Implementação de medidas de segurança robustas para proteger dados e sistemas críticos.',
-      features: ['Auditoria', 'Compliance', 'Criptografia', 'Monitoramento']
+      title: t('services.api_dev.title'),
+      description: t('services.api_dev.description'),
+      features: t('services.api_dev.features', { returnObjects: true }) as string[]
     }
   ];
 
@@ -58,11 +42,10 @@ const Services = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Nossos <span className="bg-gradient-primary bg-clip-text text-transparent">Serviços</span>
+              {t('services.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Oferecemos uma gama completa de serviços tecnológicos para impulsionar 
-              a transformação digital da sua empresa.
+              {t('services.subtitle')}
             </p>
           </div>
 
@@ -116,7 +99,7 @@ const Services = () => {
             }`}
           >
             <Button variant="hero" size="lg" asChild>
-              <a href="#contato">Solicitar Orçamento</a>
+              <a href="#contato">{t('services.cta')}</a>
             </Button>
           </div>
         </div>
