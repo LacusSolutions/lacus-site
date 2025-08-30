@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "talk_to_us": "Talk to Us"
+  },
+  "hero": {
+    "badge": "Innovative Technology Solutions",
+    "title": "We Transform",
+    "title_highlight": "Ideas",
+    "title_end": "into Software",
+    "subtitle": "We develop custom solutions that drive your business growth with cutting-edge technology and innovation.",
+    "cta_primary": "Start Project",
+    "cta_secondary": "View Our Projects",
+    "feature_1_title": "Custom Development",
+    "feature_1_desc": "Tailor-made solutions for your specific needs",
+    "feature_2_title": "Modern Technology",
+    "feature_2_desc": "We use the latest market technologies",
+    "feature_3_title": "Guaranteed Security",
+    "feature_3_desc": "Development focused on security and performance"
+  },
+  "about": {
+    "title": "About Lacus",
+    "subtitle": "Innovation and excellence in every project we develop",
+    "description": "We are a technology company specialized in creating custom software solutions. With years of experience in the market, we help companies of all sizes transform their ideas into innovative digital products.",
+    "experience_desc": "Our team of experts combines technical knowledge with market vision to deliver solutions that really make a difference in our clients' businesses. We believe technology should be accessible and bring real results.",
+    "stats": {
+      "clients": "Satisfied Clients",
+      "projects": "Completed Projects", 
+      "experience": "Years of Experience",
+      "success": "Success Rate"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions for your digital transformation",
+    "web_dev": {
+      "title": "Web Development",
+      "description": "Modern and responsive websites and web applications using the latest technologies.",
+      "features": [
+        "Responsive Design",
+        "Modern Technologies",
+        "SEO Optimization",
+        "High Performance"
+      ]
+    },
+    "mobile_dev": {
+      "title": "Mobile Development",
+      "description": "Native and hybrid mobile applications for iOS and Android platforms.",
+      "features": [
+        "Cross-platform",
+        "Intuitive Interface",
+        "Push Notifications",
+        "Offline Functionality"
+      ]
+    },
+    "api_dev": {
+      "title": "API Development",
+      "description": "Robust and scalable APIs to integrate systems and applications.",
+      "features": [
+        "RESTful APIs",
+        "Real-time Integration",
+        "Complete Documentation",
+        "Advanced Security"
+      ]
+    },
+    "cta": "Request a Quote"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Some of the solutions we've developed for our clients",
+    "categories": {
+      "web": "Web Platform",
+      "mobile": "Mobile App",
+      "api": "API Integration"
+    },
+    "actions": {
+      "view_live": "View Live",
+      "view_code": "View Code"
+    },
+    "cta_title": "Ready to start your project?",
+    "cta_subtitle": "Let's transform your idea into reality together",
+    "cta_button": "Start Now"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ready to start your project? Let's talk!",
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "benefits": {
+      "title": "Why choose Lacus?",
+      "items": [
+        "Free consultation and detailed analysis",
+        "Agile development with constant feedback",
+        "Ongoing support and maintenance",
+        "Competitive pricing and flexible payment terms"
+      ]
+    },
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Enter your full name",
+      "email": "Email",
+      "email_placeholder": "Enter your email",
+      "company": "Company",
+      "company_placeholder": "Enter your company name",
+      "message": "Message",
+      "message_placeholder": "Tell us about your project...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon."
+    }
+  },
+  "footer": {
+    "description": "We develop innovative technological solutions that transform ideas into successful digital products.",
+    "quick_links": "Quick Links",
+    "services_title": "Services",
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  }
+}

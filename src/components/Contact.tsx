@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useInView } from '@/hooks/useInView';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
   
@@ -24,8 +26,8 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "Mensagem enviada com sucesso!",
-        description: "Entraremos em contato em breve.",
+        title: t('contact.form.success'),
+        description: t('contact.form.success'),
       });
       setFormData({ name: '', email: '', company: '', message: '' });
       setIsSubmitting(false);
@@ -42,19 +44,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: 'Email',
+      title: t('contact.info.email'),
       content: 'contato@lacus.com.br',
       link: 'mailto:contato@lacus.com.br'
     },
     {
       icon: Phone,
-      title: 'Telefone',
+      title: t('contact.info.phone'),
       content: '+55 (11) 9999-9999',
       link: 'tel:+5511999999999'
     },
     {
       icon: MapPin,
-      title: 'Endereço',
+      title: t('contact.info.address'),
       content: 'São Paulo, SP - Brasil',
       link: '#'
     }
@@ -72,10 +74,10 @@ const Contact = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Entre em <span className="bg-gradient-primary bg-clip-text text-transparent">Contato</span>
+              {t('contact.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Pronto para transformar sua ideia em realidade? Vamos conversar sobre seu próximo projeto!
+              {t('contact.subtitle')}
             </p>
           </div>
 
@@ -87,7 +89,7 @@ const Contact = () => {
           >
             {/* Contact Info */}
             <div>
-              <h3 className="text-2xl font-bold mb-8">Fale Conosco</h3>
+              <h3 className="text-2xl font-bold mb-8">{t('nav.talk_to_us')}</h3>
               
               <div className="space-y-6 mb-12">
                 {contactInfo.map((info, index) => (
@@ -110,15 +112,9 @@ const Contact = () => {
 
               {/* Benefits */}
               <div className="bg-muted/50 p-6 rounded-lg">
-                <h4 className="font-bold mb-4">Por que escolher a <span className="font-poppins font-bold text-[#333333]">Lacus</span>?</h4>
+                <h4 className="font-bold mb-4">{t('contact.benefits.title')}</h4>
                 <div className="space-y-3">
-                  {[
-                    'Consultoria gratuita inicial',
-                    'Orçamento sem compromisso',
-                    'Metodologia ágil e transparente',
-                    'Suporte técnico especializado',
-                    'Garantia de qualidade'
-                  ].map((benefit, idx) => (
+                  {(t('contact.benefits.items', { returnObjects: true }) as string[]).map((benefit: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-3">
                       <CheckCircle className="text-primary" size={16} />
                       <span className="text-sm text-muted-foreground">{benefit}</span>
@@ -134,7 +130,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Nome *
+                      {t('contact.form.name')} *
                     </label>
                     <input
                       type="text"
@@ -144,13 +140,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                      placeholder="Seu nome completo"
+                      placeholder={t('contact.form.name_placeholder')}
                     />
                   </div>
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
+                      {t('contact.form.email')} *
                     </label>
                     <input
                       type="email"
@@ -160,14 +156,14 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                      placeholder="seu@email.com"
+                      placeholder={t('contact.form.email_placeholder')}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium mb-2">
-                    Empresa
+                    {t('contact.form.company')}
                   </label>
                   <input
                     type="text"
@@ -176,13 +172,13 @@ const Contact = () => {
                     value={formData.company}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    placeholder="Nome da sua empresa"
+                    placeholder={t('contact.form.company_placeholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Mensagem *
+                    {t('contact.form.message')} *
                   </label>
                   <textarea
                     id="message"
@@ -192,7 +188,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-                    placeholder="Conte-nos sobre seu projeto..."
+                    placeholder={t('contact.form.message_placeholder')}
                   />
                 </div>
 
@@ -204,10 +200,10 @@ const Contact = () => {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    'Enviando...'
+                    t('contact.form.sending')
                   ) : (
                     <>
-                      Enviar Mensagem
+                      {t('contact.form.submit')}
                       <Send size={20} />
                     </>
                   )}

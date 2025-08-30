@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const { ref: badgeRef, isInView: badgeInView } = useInView({ threshold: 0.3 });
   const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3 });
   const { ref: subtitleRef, isInView: subtitleInView } = useInView({ threshold: 0.3 });
@@ -28,7 +30,7 @@ const Hero = () => {
             }`}
           >
             <Zap size={16} />
-            Soluções Tecnológicas Inovadoras
+            {t('hero.badge')}
           </div>
 
           {/* Heading */}
@@ -38,9 +40,9 @@ const Hero = () => {
               titleInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
             }`}
           >
-            Transformamos
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> Ideias </span>
-            em Software
+            {t('hero.title')}
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> {t('hero.title_highlight')} </span>
+            {t('hero.title_end')}
           </h1>
 
           {/* Subheading */}
@@ -50,7 +52,7 @@ const Hero = () => {
               subtitleInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
             }`}
           >
-            Desenvolvemos soluções customizadas que impulsionam o crescimento do seu negócio com tecnologia de ponta e inovação.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
@@ -62,12 +64,12 @@ const Hero = () => {
           >
             <Button variant="hero" size="lg" asChild>
               <a href="#contato" className="group">
-                Iniciar Projeto
+                {t('hero.cta_primary')}
                 <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <a href="#projetos">Ver Nossos Projetos</a>
+              <a href="#projetos">{t('hero.cta_secondary')}</a>
             </Button>
           </div>
 
@@ -82,24 +84,24 @@ const Hero = () => {
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Code className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">Desenvolvimento Customizado</h3>
-              <p className="text-sm">Soluções sob medida para suas necessidades específicas</p>
+              <h3 className="font-semibold mb-2">{t('hero.feature_1_title')}</h3>
+              <p className="text-sm">{t('hero.feature_1_desc')}</p>
             </div>
             
             <div className="flex flex-col items-center text-center text-white/80">
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Zap className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">Tecnologia Moderna</h3>
-              <p className="text-sm">Utilizamos as mais recentes tecnologias do mercado</p>
+              <h3 className="font-semibold mb-2">{t('hero.feature_2_title')}</h3>
+              <p className="text-sm">{t('hero.feature_2_desc')}</p>
             </div>
             
             <div className="flex flex-col items-center text-center text-white/80">
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Shield className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">Segurança Garantida</h3>
-              <p className="text-sm">Desenvolvimento focado em segurança e performance</p>
+              <h3 className="font-semibold mb-2">{t('hero.feature_3_title')}</h3>
+              <p className="text-sm">{t('hero.feature_3_desc')}</p>
             </div>
           </div>
         </div>
