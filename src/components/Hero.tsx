@@ -11,31 +11,11 @@ const Hero = () => {
 
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Animated Code Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Matrix-style code rain effect */}
-        <div className="code-rain">
-          {[...Array(20)].map((_, i) => (
-            <div 
-              key={i}
-              className="code-column"
-              style={{
-                left: `${i * 5}%`,
-                animationDelay: `${i * 0.1}s`,
-                animationDuration: `${3 + (i % 3)}s`
-              }}
-            >
-              {[...Array(10)].map((_, j) => (
-                <span key={j} className="code-char">
-                  {Math.random() > 0.5 ? '1' : '0'}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-        {/* Gradient overlay for better contrast and color harmony */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-background/80 to-secondary/20"></div>
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 opacity-20 bg-cover bg-center"
+        style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
+      />
       
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
