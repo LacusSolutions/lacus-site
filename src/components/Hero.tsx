@@ -2,9 +2,26 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
+import { useTypewriter } from '@/hooks/useTypewriter';
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  
+  // Get animated words based on current language
+  const getAnimatedWords = () => {
+    if (i18n.language === 'pt') {
+      return ['Ideias', 'Visões', 'Sonhos', 'Projetos', 'Conceitos'];
+    }
+    return ['Ideas', 'Visions', 'Dreams', 'Projects', 'Concepts'];
+  };
+
+  const { text: animatedWord, showCursor } = useTypewriter({
+    words: getAnimatedWords(),
+    typeSpeed: 120,
+    deleteSpeed: 80,
+    delayBetweenWords: 2500,
+  });
+
   const { ref: badgeRef, isInView: badgeInView } = useInView({ threshold: 0.3 });
   const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3 });
   const { ref: subtitleRef, isInView: subtitleInView } = useInView({ threshold: 0.3 });
@@ -41,8 +58,13 @@ const Hero = () => {
             }`}
           >
             {t('hero.title')}
-            <span className="bg-gradient-primary bg-clip-text text-transparent"> {t('hero.title_highlight')} </span>
-            {t('hero.title_end')}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              {animatedWord}
+              <span className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>
+                |
+              </span>
+            </span>
+            {' '}{t('hero.title_end')}
           </h1>
 
           {/* Subheading */}
