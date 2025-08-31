@@ -123,5 +123,8 @@
     "copyright": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use"
+  },
+  "whatsapp": {
+    "chat_text": "Chat on WhatsApp"
   }
 }
