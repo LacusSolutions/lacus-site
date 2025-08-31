@@ -41,7 +41,7 @@ const Hero = () => {
           {/* Badge */}
           <div 
             ref={badgeRef}
-            className={`inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8 border border-primary/20 transition-all duration-700 ${
+            className={`inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-8 border border-secondary/20 transition-all duration-700 ${
               badgeInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
             }`}
           >
@@ -58,12 +58,12 @@ const Hero = () => {
           >
             {t('hero.title')}
             {' '}
-            <span className="text-secondary">
+            <span className="text-primary">
               {animatedWord}
-              <span className={`inline-block w-1 h-[0.9em] bg-secondary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
+              <span className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
             </span>
             {' '}
-            <span className="block sm:inline">{t('hero.title_end')}</span>
+            <span className="block">{t('hero.title_end')}</span>
           </h1>
 
           {/* Subheading */}
