@@ -14,8 +14,8 @@ const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
-    { code: 'pt', name: 'Português', flag: '🇧🇷' },
-    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'pt', name: 'Português', flag: '🇧🇷', short: 'BR' },
+    { code: 'en', name: 'English', flag: '🇺🇸', short: 'EN' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -34,9 +34,8 @@ const LanguageSwitcher = () => {
           className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
         >
           <Globe size={16} />
-          <span className="hidden sm:inline">{currentLanguage.name}</span>
-          <span className="sm:hidden">{currentLanguage.flag}</span>
-          <ChevronDown 
+          <span>{currentLanguage.short}</span>
+          <ChevronDown
             size={14} 
             className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} 
           />

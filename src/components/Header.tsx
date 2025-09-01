@@ -34,7 +34,7 @@ const Header = () => {
                 isScrolled ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'
               }`} 
             />
-            <div className={`font-poppins font-bold text-primary transition-all duration-300 ${
+            <div className={`font-poppins font-bold text-primary transition-all duration-300 h-12 flex items-center ${
               isScrolled ? 'text-2xl' : 'text-2xl md:text-3xl'
             }`}>
               Lacus
@@ -47,7 +47,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-300"
+                className="text-primary hover:text-primary/80 transition-colors duration-300"
               >
                 {item.label}
               </a>
@@ -79,7 +79,7 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-300"
+                  className="text-primary hover:text-primary/80 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
