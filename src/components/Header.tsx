@@ -18,53 +18,73 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-300 ${
-      isScrolled ? 'py-2' : 'py-4 md:py-6'
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-500 ${
+      isScrolled ? 'py-2' : 'py-4 md:py-8'
     }`}>
-      <div className={`container mx-auto px-6 transition-all duration-300 ${
-        isScrolled ? 'py-2' : 'py-2 md:py-4'
+      <div className={`container mx-auto px-6 transition-all duration-500 ${
+        isScrolled ? 'py-2' : 'py-2 md:py-6'
       }`}>
-        <div className="flex items-center justify-between">
+        {/* Desktop Layout */}
+        <div className="hidden md:block">
+          {/* Logo Section - Full width when expanded */}
+          <div className={`transition-all duration-500 ${
+            isScrolled ? 'mb-0' : 'mb-6 text-center'
+          }`}>
+            <div className={`inline-flex items-center gap-4 transition-all duration-500 ${
+              isScrolled ? 'justify-start' : 'justify-center'
+            }`}>
+              <img 
+                src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" 
+                alt="Lacus Logo" 
+                className={`transition-all duration-500 ${
+                  isScrolled ? 'w-8 h-8' : 'w-16 h-16'
+                }`} 
+              />
+              <div className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
+                isScrolled ? 'text-2xl h-8' : 'text-4xl h-16'
+              }`}>
+                Lacus
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation and Language Switcher */}
+          <div className={`flex items-center transition-all duration-500 ${
+            isScrolled ? 'justify-between' : 'justify-center gap-16'
+          }`}>
+            <nav className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-primary hover:text-primary/80 transition-colors duration-300"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            
+            <LanguageSwitcher isScrolled={isScrolled} />
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img 
               src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" 
               alt="Lacus Logo" 
-              className={`transition-all duration-300 ${
-                isScrolled ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'
-              }`} 
+              className="w-8 h-8" 
             />
-            <div className={`font-poppins font-bold text-primary transition-all duration-300 h-12 flex items-center ${
-              isScrolled ? 'text-2xl' : 'text-2xl md:text-3xl'
-            }`}>
+            <div className="font-poppins font-bold text-primary text-2xl h-8 flex items-center">
               Lacus
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-primary hover:text-primary/80 transition-colors duration-300"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Language Switcher & CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
-            <LanguageSwitcher />
-            <Button variant="outline" asChild>
-              <a href="#contato">{t('nav.talk_to_us')}</a>
-            </Button>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden"
+            className="text-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,12 +105,9 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center gap-4">
-                <LanguageSwitcher />
-                <Button variant="outline" asChild className="w-fit">
-                  <a href="#contato">{t('nav.talk_to_us')}</a>
-                </Button>
-              </div>
+               <div className="flex items-center gap-4">
+                 <LanguageSwitcher />
+               </div>
             </div>
           </nav>
         )}

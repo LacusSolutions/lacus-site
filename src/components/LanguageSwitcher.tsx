@@ -9,7 +9,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-const LanguageSwitcher = () => {
+interface LanguageSwitcherProps {
+  isScrolled?: boolean;
+}
+
+const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -34,7 +38,9 @@ const LanguageSwitcher = () => {
           className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
         >
           <Globe size={16} />
-          <span>{currentLanguage.short}</span>
+          <span className="transition-all duration-500">
+            {isScrolled ? currentLanguage.short : currentLanguage.name}
+          </span>
           <ChevronDown
             size={14} 
             className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} 
