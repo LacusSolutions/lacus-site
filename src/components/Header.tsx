@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 const Header = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isScrolled = useScrollPosition(50);
 
   const navItems = [
-    { href: '#inicio', label: t('nav.home') },
     { href: '#sobre', label: t('nav.about') },
     { href: '#servicos', label: t('nav.services') },
     { href: '#projetos', label: t('nav.projects') },
@@ -17,13 +18,25 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-300 ${
+      isScrolled ? 'py-2' : 'py-4 md:py-6'
+    }`}>
+      <div className={`container mx-auto px-6 transition-all duration-300 ${
+        isScrolled ? 'py-2' : 'py-2 md:py-4'
+      }`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" alt="Lacus Logo" className="w-8 h-8" />
-            <div className="text-2xl font-poppins font-bold text-lacus-brand">
+            <img 
+              src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" 
+              alt="Lacus Logo" 
+              className={`transition-all duration-300 ${
+                isScrolled ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'
+              }`} 
+            />
+            <div className={`font-poppins font-bold text-primary transition-all duration-300 ${
+              isScrolled ? 'text-2xl' : 'text-2xl md:text-3xl'
+            }`}>
               Lacus
             </div>
           </div>
