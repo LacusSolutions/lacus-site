@@ -1,13 +1,10 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SonnerToaster, Toaster, TooltipProvider } from "@/components/ui";
 import { WhatsAppButton } from "@/components";
 import { Home, NotFound } from "@/pages";
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+export default function App() {
+  return (
     <TooltipProvider>
       <Toaster />
       <SonnerToaster />
@@ -20,7 +17,5 @@ const App = () => (
         <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+  );
+}
