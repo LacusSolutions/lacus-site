@@ -2,21 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* 
+=======================
+DESIGN SYSTEM VARIABLES
+=======================
+Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
+// SCSS Variables for better organization
+$transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$border-radius: 0.75rem;
+
+// Mixins for reusable styles
+@mixin gradient-primary {
+  background: var(--gradient-primary);
+}
+
+@mixin gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+@mixin gradient-hero {
+  background: var(--gradient-hero);
+}
+
+@mixin shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+
+@mixin shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@mixin transition-smooth {
+  transition: var(--transition-smooth);
+}
+
+@mixin transition-bounce {
+  transition: var(--transition-bounce);
+}
+
 @layer base {
   :root {
+    // Base colors
     --background: 0 0% 95.7%; /* #f4f4f4 */
     --foreground: 222.2 84% 4.9%;
 
+    // Component colors
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
+    // Brand colors
     --primary: 200 100% 20%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 200 100% 30%;
@@ -24,6 +65,7 @@ All colors MUST be HSL.
     --secondary: 156 39% 70%;
     --secondary-foreground: 0 0% 20%;
 
+    // UI colors
     --muted: 200 20% 95%;
     --muted-foreground: 0 0% 45%;
 
@@ -33,43 +75,40 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
+    // Form elements
     --border: 156 20% 85%;
     --input: 156 20% 85%;
     --ring: 200 100% 20%;
 
-    --radius: 0.75rem;
+    // Design tokens
+    --radius: #{$border-radius};
 
-    /* Tech gradients */
+    // Advanced gradients
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(156 45% 75%));
     --gradient-hero: linear-gradient(135deg, hsl(200 30% 8%) 0%, hsl(200 25% 12%) 50%, hsl(200 30% 8%) 100%);
     
-    /* Shadows */
+    // Shadow system
     --shadow-primary: 0 10px 40px -10px hsl(var(--primary) / 0.3);
     --shadow-card: 0 4px 20px -4px hsl(200 25% 8% / 0.1);
     
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    // Animation system
+    --transition-smooth: #{$transition-smooth};
+    --transition-bounce: #{$transition-bounce};
 
+    // Sidebar system
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
+    // Dark theme overrides
     --background: 200 30% 8%;
     --foreground: 156 20% 95%;
 
@@ -97,6 +136,8 @@ All colors MUST be HSL.
     --border: 200 20% 20%;
     --input: 200 20% 20%;
     --ring: 156 39% 70%;
+
+    // Dark sidebar
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -116,5 +157,47 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     color: hsl(0 0% 20%); /* #333333 for typography */
+    
+    // Use SCSS nesting for better organization
+    &.dark {
+      // Dark mode specific body styles can go here
+    }
+  }
+}
+
+/* 
+=======================
+UTILITY CLASSES
+=======================
+Custom utility classes using SCSS mixins
+*/
+
+@layer utilities {
+  .gradient-primary {
+    @include gradient-primary;
+  }
+
+  .gradient-secondary {
+    @include gradient-secondary;
+  }
+
+  .gradient-hero {
+    @include gradient-hero;
+  }
+
+  .shadow-primary {
+    @include shadow-primary;
+  }
+
+  .shadow-card {
+    @include shadow-card;
+  }
+
+  .transition-smooth {
+    @include transition-smooth;
+  }
+
+  .transition-bounce {
+    @include transition-bounce;
   }
 }

@@ -1,0 +1,124 @@
+/* 
+=======================
+APP COMPONENT STYLES
+=======================
+Specific styles for the main App component
+*/
+
+// SCSS Variables
+$logo-size: 6em;
+$logo-padding: 1.5em;
+$card-padding: 2em;
+$animation-duration: 20s;
+
+// Mixins for reusable patterns
+@mixin logo-hover-effect($color) {
+  &:hover {
+    filter: drop-shadow(0 0 2em #{$color});
+  }
+}
+
+@mixin center-layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+// Main app root styles
+#root {
+  @include center-layout;
+}
+
+// Logo styles with SCSS nesting and mixins
+.logo {
+  height: $logo-size;
+  padding: $logo-padding;
+  will-change: filter;
+  transition: filter 300ms;
+  
+  @include logo-hover-effect(#646cffaa);
+
+  &.react {
+    @include logo-hover-effect(#61dafbaa);
+  }
+}
+
+// Animation definitions
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive animations
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) {
+    .logo {
+      animation: logo-spin infinite $animation-duration linear;
+    }
+  }
+}
+
+// Card component
+.card {
+  padding: $card-padding;
+  
+  // Nested styles for better organization
+  .card-header {
+    margin-bottom: 1rem;
+  }
+  
+  .card-content {
+    line-height: 1.6;
+  }
+}
+
+// Documentation link styles
+.read-the-docs {
+  color: #888;
+  
+  &:hover {
+    color: #666;
+    transition: color 0.3s ease;
+  }
+}
+
+/* 
+=======================
+COMPONENT VARIATIONS
+=======================
+Variations and modifiers using SCSS
+*/
+
+// Button variations (if needed)
+.btn {
+  &--primary {
+    background: var(--gradient-primary);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-primary);
+    }
+  }
+  
+  &--secondary {
+    background: var(--gradient-secondary);
+  }
+}
+
+// Text variations
+.text {
+  &--hero {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.2;
+  }
+  
+  &--subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    opacity: 0.8;
+  }
+}
