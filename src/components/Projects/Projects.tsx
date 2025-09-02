@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { useInView } from '@/hooks';
+import { Button } from '~/components/ui';
+import { useInView } from '~/hooks';
 
 export function Projects() {
   const { t } = useTranslation();

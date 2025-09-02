@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { useInView, useToast } from '@/hooks';
+import { Button } from '~/components/ui';
+import { useInView, useToast } from '~/hooks';
 
 export function Contact() {
   const { t } = useTranslation();

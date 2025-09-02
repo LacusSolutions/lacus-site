@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
-import { useInView } from '@/hooks';
+import { useInView } from '~/hooks';
 
 export function About() {
   const { t } = useTranslation();

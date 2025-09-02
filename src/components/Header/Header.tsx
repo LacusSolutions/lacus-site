@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
-import { LanguageSwitcher } from '@/components';
-import { useScrollPosition } from '@/hooks';
+import { LanguageSwitcher } from '~/components';
+import { useScrollPosition } from '~/hooks';
 
 export function Header() {
   const { t } = useTranslation();

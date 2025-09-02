@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { Button } from '@/components/ui';
+import { Button } from '~/components/ui';
 import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
-import { useInView, useTypewriter } from '@/hooks';
+import { useInView, useTypewriter } from '~/hooks';
 
 export function Hero() {
   const { t, i18n } = useTranslation();

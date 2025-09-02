@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
-import { useHeaderHeight } from '@/hooks';
-import { About, Contact, Footer, Hero, Header, Projects, Services } from '@/components';
+import { useHeaderHeight } from '~/hooks';
+import { About, Contact, Footer, Hero, Header, Projects, Services } from '~/components';
 
 export function Home() {
   const headerHeight = useHeaderHeight();

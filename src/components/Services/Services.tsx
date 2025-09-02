@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Smartphone, Globe, Database, Cog, Cloud, Shield } from 'lucide-react';
-import { Button } from '@/components/ui';
-import { useInView } from '@/hooks';
+import { Button } from '~/components/ui';
+import { useInView } from '~/hooks';
 
 export function Services() {
   const { t } = useTranslation();

@@ -7,7 +7,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui';
+} from '~/components/ui';
 
 interface LanguageSwitcherProps {
   isScrolled?: boolean;
