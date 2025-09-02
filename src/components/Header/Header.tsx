@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { LanguageSwitcher } from '@/components';
+import { useScrollPosition } from '@/hooks';
 
-const Header = () => {
+export function Header() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
@@ -33,12 +32,12 @@ const Header = () => {
             <div className={`inline-flex items-center gap-4 transition-all duration-500 ${
               isScrolled ? 'justify-start' : 'justify-center'
             }`}>
-              <img 
-                src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" 
-                alt="Lacus Logo" 
+              <img
+                src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+                alt="Lacus Logo"
                 className={`transition-all duration-500 ${
                   isScrolled ? 'w-8 h-8' : 'w-16 h-16'
-                }`} 
+                }`}
               />
               <div className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
                 isScrolled ? 'text-2xl h-8' : 'text-4xl h-16'
@@ -47,7 +46,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Navigation and Language Switcher */}
           <div className={`flex items-center transition-all duration-500 ${
             isScrolled ? 'justify-between' : 'justify-center gap-16'
@@ -63,7 +62,7 @@ const Header = () => {
                 </a>
               ))}
             </nav>
-            
+
             <LanguageSwitcher isScrolled={isScrolled} />
           </div>
         </div>
@@ -72,10 +71,10 @@ const Header = () => {
         <div className="md:hidden flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img 
-              src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" 
-              alt="Lacus Logo" 
-              className="w-8 h-8" 
+            <img
+              src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+              alt="Lacus Logo"
+              className="w-8 h-8"
             />
             <div className="font-poppins font-bold text-primary text-2xl h-8 flex items-center">
               Lacus
@@ -114,6 +113,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}

@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-import { useInView } from '@/hooks/useInView';
+import { Button } from '@/components/ui';
+import { useInView, useToast } from '@/hooks';
 
-const Contact = () => {
+export function Contact() {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,7 +21,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
@@ -67,7 +66,7 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div 
+          <div
             ref={headerRef}
             className={`text-center mb-16 transition-all duration-700 ${
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -81,7 +80,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div 
+          <div
             ref={contentRef}
             className={`grid lg:grid-cols-2 gap-16 transition-all duration-700 delay-300 ${
               contentInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -90,7 +89,7 @@ const Contact = () => {
             {/* Contact Info */}
             <div>
               <h3 className="text-2xl font-bold mb-8">{t('nav.talk_to_us')}</h3>
-              
+
               <div className="space-y-6 mb-12">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-center gap-4">
@@ -99,7 +98,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground">{info.title}</h4>
-                      <a 
+                      <a
                         href={info.link}
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
@@ -143,7 +142,7 @@ const Contact = () => {
                       placeholder={t('contact.form.name_placeholder')}
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       {t('contact.form.email')} *
@@ -192,10 +191,10 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="hero"
+                  size="lg"
                   className="w-full"
                   disabled={isSubmitting}
                 >
@@ -215,6 +214,4 @@ const Contact = () => {
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

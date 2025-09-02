@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 
-const Footer = () => {
+export function Footer() {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
@@ -46,7 +46,7 @@ const Footer = () => {
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
                 {t('footer.description')}
               </p>
-              
+
               {/* Social Links */}
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
@@ -103,7 +103,7 @@ const Footer = () => {
                   Lacus
                 </span>. {t('footer.copyright')}
               </p>
-              
+
               <div className="flex gap-6 text-sm">
                 <a href="#" className="text-secondary-foreground/60 hover:text-primary transition-colors">
                   {t('footer.privacy')}
@@ -118,6 +118,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

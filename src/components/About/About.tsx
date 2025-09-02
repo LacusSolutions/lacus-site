@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Users, Target, Award, TrendingUp } from 'lucide-react';
-import { useInView } from '@/hooks/useInView';
+import { useInView } from '@/hooks';
 
-const About = () => {
+export function About() {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: statsRef, isInView: statsInView } = useInView();
@@ -20,7 +20,7 @@ const About = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div 
+          <div
             ref={headerRef}
             className={`text-center mb-16 transition-all duration-700 ${
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -35,15 +35,15 @@ const About = () => {
           </div>
 
           {/* Stats */}
-          <div 
+          <div
             ref={statsRef}
             className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 transition-all duration-700 delay-200 ${
               statsInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
             }`}
           >
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`text-center group transition-all duration-500 delay-${index * 100}`}
               >
                 <div className="bg-gradient-primary p-4 rounded-full w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -56,7 +56,7 @@ const About = () => {
           </div>
 
           {/* Content */}
-          <div 
+          <div
             ref={contentRef}
             className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 delay-400 ${
               contentInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -68,8 +68,8 @@ const About = () => {
                 Nossa <span className="bg-gradient-primary bg-clip-text text-transparent">Missão</span>
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas 
-                que se adaptam perfeitamente às necessidades específicas de cada cliente. 
+                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas
+                que se adaptam perfeitamente às necessidades específicas de cada cliente.
                 Acreditamos que a tecnologia deve servir ao negócio, não o contrário.
               </p>
               <div className="space-y-4">
@@ -99,11 +99,11 @@ const About = () => {
               <h4 className="text-xl font-bold mb-6">Experiência Comprovada</h4>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  Com mais de <strong className="text-primary">5 anos</strong> no mercado, 
+                  Com mais de <strong className="text-primary">5 anos</strong> no mercado,
                   já entregamos soluções para empresas de diversos segmentos.
                 </p>
                 <p className="text-muted-foreground">
-                  Nossa equipe combina expertise técnica com visão de negócio, 
+                  Nossa equipe combina expertise técnica com visão de negócio,
                   garantindo que cada projeto agregue valor real ao cliente.
                 </p>
               </div>
@@ -113,6 +113,4 @@ const About = () => {
       </div>
     </section>
   );
-};
-
-export default About;
+}

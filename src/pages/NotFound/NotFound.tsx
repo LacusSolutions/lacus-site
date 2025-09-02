@@ -14,7 +14,7 @@ if (typeof document !== 'undefined') {
   }
 }
 
-const NotFound = () => {
+export function NotFound() {
   const location = useLocation();
 
   useEffect(() => {
@@ -35,6 +35,4 @@ const NotFound = () => {
       </div>
     </div>
   );
-};
-
-export default NotFound;
+}

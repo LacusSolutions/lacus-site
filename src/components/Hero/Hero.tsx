@@ -1,13 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
 import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
-import { useInView } from '@/hooks/useInView';
-import { useTypewriter } from '@/hooks/useTypewriter';
+import { useInView, useTypewriter } from '@/hooks';
 
-const Hero = () => {
+export function Hero() {
   const { t, i18n } = useTranslation();
-  
+
   // Get animated words based on current language
   const words = useMemo(
     () => (i18n.language === 'pt' ? ['Ideias', 'Visões', 'Sonhos', 'Projetos', 'Conceitos'] : ['Ideas', 'Visions', 'Dreams', 'Projects', 'Concepts']),
@@ -30,16 +29,16 @@ const Hero = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 opacity-20 bg-cover bg-center"
         style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
       />
-      
+
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <div className="max-w-4xl mx-auto">
           {/* Badge */}
-          <div 
+          <div
             ref={badgeRef}
             className={`inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-8 border border-secondary/20 transition-all duration-700 ${
               badgeInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
@@ -50,7 +49,7 @@ const Hero = () => {
           </div>
 
           {/* Heading */}
-          <h1 
+          <h1
             ref={titleRef}
             className={`text-5xl md:text-7xl font-bold text-white mb-6 leading-tight transition-all duration-700 delay-200 ${
               titleInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
@@ -67,7 +66,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p 
+          <p
             ref={subtitleRef}
             className={`text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed transition-all duration-700 delay-300 ${
               subtitleInView ? 'animate-fade-in' : 'opacity-0 translate-y-5'
@@ -77,7 +76,7 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div 
+          <div
             ref={buttonsRef}
             className={`flex flex-col sm:flex-row gap-4 justify-center mb-16 transition-all duration-700 delay-500 ${
               buttonsInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
@@ -95,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* Features */}
-          <div 
+          <div
             ref={featuresRef}
             className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto transition-all duration-700 delay-700 ${
               featuresInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -108,7 +107,7 @@ const Hero = () => {
               <h3 className="font-semibold mb-2">{t('hero.feature_1_title')}</h3>
               <p className="text-sm">{t('hero.feature_1_desc')}</p>
             </div>
-            
+
             <div className="flex flex-col items-center text-center text-white/80">
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Zap className="text-primary" size={32} />
@@ -116,7 +115,7 @@ const Hero = () => {
               <h3 className="font-semibold mb-2">{t('hero.feature_2_title')}</h3>
               <p className="text-sm">{t('hero.feature_2_desc')}</p>
             </div>
-            
+
             <div className="flex flex-col items-center text-center text-white/80">
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Shield className="text-primary" size={32} />
@@ -135,6 +134,4 @@ const Hero = () => {
       </div>
     </section>
   );
-};
-
-export default Hero;
+}

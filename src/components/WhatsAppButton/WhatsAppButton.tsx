@@ -3,7 +3,7 @@ import { MessageCircle } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import { useTranslation } from 'react-i18next';
 
-const WhatsAppButton = () => {
+export function WhatsAppButton() {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const phoneNumber = '5541985187730';
@@ -49,8 +49,8 @@ const WhatsAppButton = () => {
         {/* QR Code */}
         <div
           className={`absolute bottom-20 right-0 bg-white p-4 rounded-lg shadow-lg border transition-all duration-300 ${
-            isExpanded 
-              ? 'opacity-100 scale-100 translate-y-0' 
+            isExpanded
+              ? 'opacity-100 scale-100 translate-y-0'
               : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
           }`}
         >
@@ -82,8 +82,8 @@ const WhatsAppButton = () => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           className={`group flex items-center justify-center bg-secondary text-secondary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
-            isExpanded 
-              ? 'pl-6 pr-4 py-3 gap-3' 
+            isExpanded
+              ? 'pl-6 pr-4 py-3 gap-3'
               : 'w-14 h-14'
           }`}
           aria-label={isExpanded ? t('whatsapp.chat_text') : 'Chat on WhatsApp'}
@@ -91,8 +91,8 @@ const WhatsAppButton = () => {
           <MessageCircle className="w-6 h-6 flex-shrink-0" />
           <span
             className={`whitespace-nowrap font-medium transition-all duration-300 ${
-              isExpanded 
-                ? 'opacity-100 max-w-xs' 
+              isExpanded
+                ? 'opacity-100 max-w-xs'
                 : 'opacity-0 max-w-0 overflow-hidden'
             }`}
           >
@@ -102,6 +102,4 @@ const WhatsAppButton = () => {
       </div>
     </>
   );
-};
-
-export default WhatsAppButton;
+}

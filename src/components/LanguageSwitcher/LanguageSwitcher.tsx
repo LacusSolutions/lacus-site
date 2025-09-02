@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
 import { Globe, ChevronDown } from 'lucide-react';
 import {
+  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui';
 
 interface LanguageSwitcherProps {
   isScrolled?: boolean;
 }
 
-const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
+export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps) {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,8 +32,8 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           size="sm"
           className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
         >
@@ -42,13 +42,13 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
             {isScrolled ? currentLanguage.short : currentLanguage.name}
           </span>
           <ChevronDown
-            size={14} 
-            className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+            size={14}
+            className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
           />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        align="end" 
+      <DropdownMenuContent
+        align="end"
         className="w-40 bg-background border border-border shadow-lg z-50"
       >
         {languages.map((language) => (
@@ -66,6 +66,4 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
-
-export default LanguageSwitcher;
+}

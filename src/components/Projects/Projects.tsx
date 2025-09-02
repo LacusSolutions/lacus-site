@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useInView } from '@/hooks/useInView';
+import { Button } from '@/components/ui';
+import { useInView } from '@/hooks';
 
-const Projects = () => {
+export function Projects() {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: gridRef, isInView: gridInView } = useInView();
@@ -59,7 +59,7 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div 
+          <div
             ref={headerRef}
             className={`text-center mb-16 transition-all duration-700 ${
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -74,27 +74,27 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div 
+          <div
             ref={gridRef}
             className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 transition-all duration-700 delay-200 ${
               gridInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
             }`}
           >
             {projects.map((project, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`group bg-card rounded-lg shadow-card border overflow-hidden hover:shadow-primary/20 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
                   gridInView ? 'animate-slide-in-left' : 'opacity-0 translate-x-8'
                 }`}
-                style={{ 
+                style={{
                   animationDelay: gridInView ? `${index * 150 + 300}ms` : '0ms',
                   animationFillMode: 'both'
                 }}
               >
                 {/* Image */}
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={`${project.title} - ${project.category}`}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     loading="lazy"
@@ -113,7 +113,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                     {project.description}
                   </p>
@@ -121,8 +121,8 @@ const Projects = () => {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, idx) => (
-                      <span 
-                        key={idx} 
+                      <span
+                        key={idx}
                         className="bg-primary/10 text-primary px-2 py-1 rounded text-xs font-medium"
                       >
                         {tech}
@@ -146,7 +146,7 @@ const Projects = () => {
           </div>
 
           {/* CTA */}
-          <div 
+          <div
             ref={ctaRef}
             className={`text-center transition-all duration-700 delay-500 ${
               ctaInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
@@ -163,6 +163,4 @@ const Projects = () => {
       </div>
     </section>
   );
-};
-
-export default Projects;
+}
