@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
 
 import { WhatsAppButton } from '~/components';
 import { SonnerToaster, Toaster, TooltipProvider } from '~/components/ui';

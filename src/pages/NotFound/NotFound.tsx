@@ -1,5 +1,5 @@
 import { type ReactNode, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 // SEO: Prevent indexing of 404 page
 if (typeof document !== 'undefined') {
