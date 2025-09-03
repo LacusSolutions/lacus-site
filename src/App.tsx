@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SonnerToaster, Toaster, TooltipProvider } from "~/components/ui";
-import { WhatsAppButton } from "~/components";
-import { Home, NotFound } from "~/pages";
+import { type ReactNode } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-export default function App() {
+import { WhatsAppButton } from '~/components';
+import { SonnerToaster, Toaster, TooltipProvider } from '~/components/ui';
+import { Home, NotFound } from '~/pages';
+
+export default function App(): ReactNode {
   return (
     <TooltipProvider>
       <Toaster />

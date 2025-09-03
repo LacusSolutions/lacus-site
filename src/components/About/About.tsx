@@ -1,8 +1,10 @@
+import { Award, Target, TrendingUp, Users } from 'lucide-react';
+import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Users, Target, Award, TrendingUp } from 'lucide-react';
+
 import { useInView } from '~/hooks';
 
-export function About() {
+export function About(): ReactNode {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: statsRef, isInView: statsInView } = useInView();
@@ -26,12 +28,8 @@ export function About() {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('about.title')}
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('about.subtitle')}
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('about.title')}</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('about.subtitle')}</p>
           </div>
 
           {/* Stats */}
@@ -65,30 +63,34 @@ export function About() {
             {/* Mission */}
             <div className="space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold">
-                Nossa <span className="bg-gradient-primary bg-clip-text text-transparent">Missão</span>
+                Nossa{' '}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Missão</span>
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas
-                que se adaptam perfeitamente às necessidades específicas de cada cliente.
-                Acreditamos que a tecnologia deve servir ao negócio, não o contrário.
+                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas que se
+                adaptam perfeitamente às necessidades específicas de cada cliente. Acreditamos que a
+                tecnologia deve servir ao negócio, não o contrário.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Inovação Constante:</strong> Mantemo-nos atualizados com as últimas tecnologias
+                    <strong className="text-foreground">Inovação Constante:</strong> Mantemo-nos
+                    atualizados com as últimas tecnologias
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Qualidade Garantida:</strong> Rigorosos processos de teste e validação
+                    <strong className="text-foreground">Qualidade Garantida:</strong> Rigorosos
+                    processos de teste e validação
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Suporte Dedicado:</strong> Acompanhamento completo antes, durante e após o projeto
+                    <strong className="text-foreground">Suporte Dedicado:</strong> Acompanhamento
+                    completo antes, durante e após o projeto
                   </p>
                 </div>
               </div>
@@ -99,12 +101,12 @@ export function About() {
               <h4 className="text-xl font-bold mb-6">Experiência Comprovada</h4>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  Com mais de <strong className="text-primary">5 anos</strong> no mercado,
-                  já entregamos soluções para empresas de diversos segmentos.
+                  Com mais de <strong className="text-primary">5 anos</strong> no mercado, já
+                  entregamos soluções para empresas de diversos segmentos.
                 </p>
                 <p className="text-muted-foreground">
-                  Nossa equipe combina expertise técnica com visão de negócio,
-                  garantindo que cada projeto agregue valor real ao cliente.
+                  Nossa equipe combina expertise técnica com visão de negócio, garantindo que cada
+                  projeto agregue valor real ao cliente.
                 </p>
               </div>
             </div>

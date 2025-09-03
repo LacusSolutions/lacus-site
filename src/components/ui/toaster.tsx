@@ -1,4 +1,5 @@
-import { useToast } from "~/hooks"
+import { type ReactNode } from 'react';
+
 import {
   Toast,
   ToastClose,
@@ -6,10 +7,11 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "~/components/ui"
+} from '~/components/ui';
+import { useToast } from '~/hooks';
 
-export function Toaster() {
-  const { toasts } = useToast()
+export function Toaster(): ReactNode {
+  const { toasts } = useToast();
 
   return (
     <ToastProvider>
@@ -18,16 +20,14 @@ export function Toaster() {
           <Toast key={id} {...props}>
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             {action}
             <ToastClose />
           </Toast>
-        )
+        );
       })}
       <ToastViewport />
     </ToastProvider>
-  )
+  );
 }

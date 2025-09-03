@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const useScrollPosition = (threshold: number = 100) => {
+export function useScrollPosition(threshold = 100): boolean {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       setIsScrolled(scrollTop > threshold);
     };
@@ -12,10 +12,10 @@ export const useScrollPosition = (threshold: number = 100) => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check initial position
 
-    return () => {
+    return (): void => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [threshold]);
 
   return isScrolled;
-};
+}

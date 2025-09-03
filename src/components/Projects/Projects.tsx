@@ -1,9 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github } from 'lucide-react';
+import { type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { Button } from '~/components/ui';
 import { useInView } from '~/hooks';
 
-export function Projects() {
+export function Projects(): ReactNode {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: gridRef, isInView: gridInView } = useInView();
@@ -12,46 +14,52 @@ export function Projects() {
   const projects = [
     {
       title: 'Sistema ERP Corporativo',
-      description: 'Desenvolvimento completo de sistema ERP para gestão empresarial com módulos financeiro, estoque e vendas.',
+      description:
+        'Desenvolvimento completo de sistema ERP para gestão empresarial com módulos financeiro, estoque e vendas.',
       tech: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
       category: t('projects.categories.web'),
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop',
     },
     {
       title: 'Aplicativo de Delivery',
-      description: 'App mobile completo para delivery com geolocalização, pagamentos integrados e painel administrativo.',
+      description:
+        'App mobile completo para delivery com geolocalização, pagamentos integrados e painel administrativo.',
       tech: ['React Native', 'Firebase', 'Stripe', 'Maps API'],
       category: t('projects.categories.mobile'),
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
     },
     {
       title: 'Plataforma E-learning',
-      description: 'Sistema de ensino online com videoaulas, exercícios interativos e acompanhamento de progresso.',
+      description:
+        'Sistema de ensino online com videoaulas, exercícios interativos e acompanhamento de progresso.',
       tech: ['Next.js', 'TypeScript', 'MongoDB', 'Video.js'],
       category: t('projects.categories.web'),
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop',
     },
     {
       title: 'Dashboard Analytics',
-      description: 'Painel de business intelligence com visualização de dados em tempo real e relatórios customizáveis.',
+      description:
+        'Painel de business intelligence com visualização de dados em tempo real e relatórios customizáveis.',
       tech: ['Vue.js', 'D3.js', 'Python', 'Docker'],
       category: t('projects.categories.web'),
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
     },
     {
       title: 'API de Integração',
-      description: 'Desenvolvimento de API robusta para integração entre sistemas legados e novas aplicações.',
+      description:
+        'Desenvolvimento de API robusta para integração entre sistemas legados e novas aplicações.',
       tech: ['Node.js', 'Express', 'Redis', 'JWT'],
       category: t('projects.categories.api'),
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop'
+      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
     },
     {
       title: 'Sistema IoT Industrial',
-      description: 'Solução IoT para monitoramento industrial com sensores, alertas automáticos e controle remoto.',
+      description:
+        'Solução IoT para monitoramento industrial com sensores, alertas automáticos e controle remoto.',
       tech: ['React', 'MQTT', 'InfluxDB', 'Grafana'],
       category: t('projects.categories.api'),
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop'
-    }
+      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=600&h=400&fit=crop',
+    },
   ];
 
   return (
@@ -65,9 +73,7 @@ export function Projects() {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('projects.title')}
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('projects.title')}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('projects.subtitle')}
             </p>
@@ -88,7 +94,7 @@ export function Projects() {
                 }`}
                 style={{
                   animationDelay: gridInView ? `${index * 150 + 300}ms` : '0ms',
-                  animationFillMode: 'both'
+                  animationFillMode: 'both',
                 }}
               >
                 {/* Image */}
@@ -152,9 +158,7 @@ export function Projects() {
               ctaInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <p className="text-muted-foreground mb-6">
-              {t('projects.cta_subtitle')}
-            </p>
+            <p className="text-muted-foreground mb-6">{t('projects.cta_subtitle')}</p>
             <Button variant="hero" size="lg" asChild>
               <a href="#contato">{t('projects.cta_button')}</a>
             </Button>

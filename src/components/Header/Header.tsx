@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
+import { type ReactNode, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { LanguageSwitcher } from '~/components';
 import { useScrollPosition } from '~/hooks';
 
-export function Header() {
+export function Header(): ReactNode {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
@@ -17,40 +18,48 @@ export function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-500 ${
-      isScrolled ? 'py-2' : 'py-4 md:py-8'
-    }`}>
-      <div className={`container mx-auto px-6 transition-all duration-500 ${
-        isScrolled ? 'py-2' : 'py-2 md:py-6'
-      }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-500 ${
+        isScrolled ? 'py-2' : 'py-4 md:py-8'
+      }`}
+    >
+      <div
+        className={`container mx-auto px-6 transition-all duration-500 ${
+          isScrolled ? 'py-2' : 'py-2 md:py-6'
+        }`}
+      >
         {/* Desktop Layout */}
         <div className="hidden md:block">
           {/* Logo Section - Full width when expanded */}
-          <div className={`transition-all duration-500 ${
-            isScrolled ? 'mb-0' : 'mb-6 text-center'
-          }`}>
-            <div className={`inline-flex items-center gap-4 transition-all duration-500 ${
-              isScrolled ? 'justify-start' : 'justify-center'
-            }`}>
+          <div
+            className={`transition-all duration-500 ${isScrolled ? 'mb-0' : 'mb-6 text-center'}`}
+          >
+            <div
+              className={`inline-flex items-center gap-4 transition-all duration-500 ${
+                isScrolled ? 'justify-start' : 'justify-center'
+              }`}
+            >
               <img
                 src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
                 alt="Lacus Logo"
-                className={`transition-all duration-500 ${
-                  isScrolled ? 'w-8 h-8' : 'w-16 h-16'
-                }`}
+                className={`transition-all duration-500 ${isScrolled ? 'w-8 h-8' : 'w-16 h-16'}`}
               />
-              <div className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
-                isScrolled ? 'text-2xl h-8' : 'text-4xl h-16'
-              }`}>
+              <div
+                className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
+                  isScrolled ? 'text-2xl h-8' : 'text-4xl h-16'
+                }`}
+              >
                 Lacus
               </div>
             </div>
           </div>
 
           {/* Navigation and Language Switcher */}
-          <div className={`flex items-center transition-all duration-500 ${
-            isScrolled ? 'justify-between' : 'justify-center gap-16'
-          }`}>
+          <div
+            className={`flex items-center transition-all duration-500 ${
+              isScrolled ? 'justify-between' : 'justify-center gap-16'
+            }`}
+          >
             <nav className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <a
@@ -82,10 +91,7 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="text-primary"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="text-primary" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -104,9 +110,9 @@ export function Header() {
                   {item.label}
                 </a>
               ))}
-               <div className="flex items-center gap-4">
-                 <LanguageSwitcher />
-               </div>
+              <div className="flex items-center gap-4">
+                <LanguageSwitcher />
+              </div>
             </div>
           </nav>
         )}

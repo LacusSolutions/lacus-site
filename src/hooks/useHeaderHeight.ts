@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-export const useHeaderHeight = () => {
+export function useHeaderHeight(): number {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   useEffect(() => {
-    const updateHeaderHeight = () => {
+    const updateHeaderHeight = (): void => {
       const header = document.querySelector('header');
       if (header) {
         setHeaderHeight(header.offsetHeight);
@@ -15,12 +15,12 @@ export const useHeaderHeight = () => {
     updateHeaderHeight();
 
     // Update on scroll to account for header size changes
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       updateHeaderHeight();
     };
 
     // Update on resize
-    const handleResize = () => {
+    const handleResize = (): void => {
       updateHeaderHeight();
     };
 
@@ -30,18 +30,18 @@ export const useHeaderHeight = () => {
     // Use MutationObserver to detect changes in header structure
     const header = document.querySelector('header');
     let observer: MutationObserver | null = null;
-    
+
     if (header) {
       observer = new MutationObserver(updateHeaderHeight);
       observer.observe(header, {
         attributes: true,
         childList: true,
         subtree: true,
-        attributeFilter: ['class', 'style']
+        attributeFilter: ['class', 'style'],
       });
     }
 
-    return () => {
+    return (): void => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
       if (observer) {
@@ -51,4 +51,4 @@ export const useHeaderHeight = () => {
   }, []);
 
   return headerHeight;
-};
+}

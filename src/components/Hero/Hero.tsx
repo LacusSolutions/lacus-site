@@ -1,16 +1,20 @@
+import { ArrowRight, Code, Shield, Zap } from 'lucide-react';
+import { type ReactNode, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useMemo } from 'react';
+
 import { Button } from '~/components/ui';
-import { ArrowRight, Code, Zap, Shield } from 'lucide-react';
 import { useInView, useTypewriter } from '~/hooks';
 
-export function Hero() {
+export function Hero(): ReactNode {
   const { t, i18n } = useTranslation();
 
   // Get animated words based on current language
   const words = useMemo(
-    () => (i18n.language === 'pt' ? ['Ideias', 'Visões', 'Sonhos', 'Projetos', 'Conceitos'] : ['Ideas', 'Visions', 'Dreams', 'Projects', 'Concepts']),
-    [i18n.language]
+    () =>
+      i18n.language === 'pt'
+        ? ['Ideias', 'Visões', 'Sonhos', 'Projetos', 'Conceitos']
+        : ['Ideas', 'Visions', 'Dreams', 'Projects', 'Concepts'],
+    [i18n.language],
   );
 
   const { text: animatedWord, showCursor } = useTypewriter({
@@ -27,7 +31,10 @@ export function Hero() {
   const { ref: featuresRef, isInView: featuresInView } = useInView({ threshold: 0.3 });
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section
+      id="inicio"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0 opacity-20 bg-cover bg-center"
@@ -55,13 +62,15 @@ export function Hero() {
               titleInView ? 'animate-slide-in-up' : 'opacity-0 translate-y-8'
             }`}
           >
-            {t('hero.title')}
-            {' '}
+            {t('hero.title')}{' '}
             <span className="text-primary">
               {animatedWord}
-              <span className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
-            </span>
-            {' '}
+              <span
+                className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
+              >
+                |
+              </span>
+            </span>{' '}
             <span className="block">{t('hero.title_end')}</span>
           </h1>
 

@@ -1,25 +1,48 @@
+import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { type ChangeEvent, type FormEvent, type ReactNode } from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+
 import { Button } from '~/components/ui';
 import { useInView, useToast } from '~/hooks';
 
-export function Contact() {
+export function Contact(): ReactNode {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: t('contact.info.email'),
+      content: 'contato@lacus.com.br',
+      link: 'mailto:contato@lacus.com.br',
+    },
+    {
+      icon: Phone,
+      title: t('contact.info.phone'),
+      content: '+55 (11) 9999-9999',
+      link: 'tel:+5511999999999',
+    },
+    {
+      icon: MapPin,
+      title: t('contact.info.address'),
+      content: 'São Paulo, SP - Brasil',
+      link: '#',
+    },
+  ];
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    message: ''
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  async function handleSubmit(event: FormEvent): Promise<void> {
+    event.preventDefault();
     setIsSubmitting(true);
 
     // Simulate form submission
@@ -31,35 +54,14 @@ export function Contact() {
       setFormData({ name: '', email: '', company: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
-  };
+  }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [event.target.name]: event.target.value,
     });
-  };
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: t('contact.info.email'),
-      content: 'contato@lacus.com.br',
-      link: 'mailto:contato@lacus.com.br'
-    },
-    {
-      icon: Phone,
-      title: t('contact.info.phone'),
-      content: '+55 (11) 9999-9999',
-      link: 'tel:+5511999999999'
-    },
-    {
-      icon: MapPin,
-      title: t('contact.info.address'),
-      content: 'São Paulo, SP - Brasil',
-      link: '#'
-    }
-  ];
+  }
 
   return (
     <section id="contato" className="py-24 bg-background">
@@ -72,9 +74,7 @@ export function Contact() {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('contact.title')}
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('contact.title')}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('contact.subtitle')}
             </p>
@@ -113,12 +113,14 @@ export function Contact() {
               <div className="bg-muted/50 p-6 rounded-lg">
                 <h4 className="font-bold mb-4">{t('contact.benefits.title')}</h4>
                 <div className="space-y-3">
-                  {(t('contact.benefits.items', { returnObjects: true }) as string[]).map((benefit: string, idx: number) => (
-                    <div key={idx} className="flex items-center gap-3">
-                      <CheckCircle className="text-primary" size={16} />
-                      <span className="text-sm text-muted-foreground">{benefit}</span>
-                    </div>
-                  ))}
+                  {(t('contact.benefits.items', { returnObjects: true }) as string[]).map(
+                    (benefit: string, idx: number) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <CheckCircle className="text-primary" size={16} />
+                        <span className="text-sm text-muted-foreground">{benefit}</span>
+                      </div>
+                    ),
+                  )}
                 </div>
               </div>
             </div>

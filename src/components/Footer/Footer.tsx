@@ -1,7 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
-export function Footer() {
+export function Footer(): ReactNode {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
@@ -9,7 +10,7 @@ export function Footer() {
     { icon: Github, href: '#', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:contato@lacus.com.br', label: 'Email' },
-    { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' }
+    { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' },
   ];
 
   const quickLinks = [
@@ -17,7 +18,7 @@ export function Footer() {
     { label: t('nav.about'), href: '#sobre' },
     { label: t('nav.services'), href: '#servicos' },
     { label: t('nav.projects'), href: '#projetos' },
-    { label: t('nav.contact'), href: '#contato' }
+    { label: t('nav.contact'), href: '#contato' },
   ];
 
   const services = [
@@ -26,7 +27,7 @@ export function Footer() {
     'Sistemas Customizados',
     'Cloud Computing',
     'Consultoria Tech',
-    'Segurança Digital'
+    'Segurança Digital',
   ];
 
   return (
@@ -38,10 +39,12 @@ export function Footer() {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" alt="Lacus Logo" className="w-10 h-10" />
-                <div className="text-3xl font-poppins font-bold text-lacus-brand">
-                  Lacus
-                </div>
+                <img
+                  src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+                  alt="Lacus Logo"
+                  className="w-10 h-10"
+                />
+                <div className="text-3xl font-poppins font-bold text-lacus-brand">Lacus</div>
               </div>
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
                 {t('footer.description')}
@@ -85,9 +88,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <span className="text-secondary-foreground/80 text-sm">
-                      {service}
-                    </span>
+                    <span className="text-secondary-foreground/80 text-sm">{service}</span>
                   </li>
                 ))}
               </ul>
@@ -98,17 +99,31 @@ export function Footer() {
           <div className="border-t border-secondary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-secondary-foreground/60 text-sm">
-                © {currentYear} <span className="inline-flex items-center gap-2 font-poppins font-bold text-lacus-brand">
-                  <img src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png" alt="Lacus Logo" className="w-4 h-4" />
+                © {currentYear}{' '}
+                <span className="inline-flex items-center gap-2 font-poppins font-bold text-lacus-brand">
+                  <img
+                    src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+                    alt="Lacus Logo"
+                    className="w-4 h-4"
+                  />
                   Lacus
-                </span>. {t('footer.copyright')}
+                </span>
+                . {t('footer.copyright')}
               </p>
 
               <div className="flex gap-6 text-sm">
-                <a href="#" className="text-secondary-foreground/60 hover:text-primary transition-colors">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a
+                  href="#"
+                  className="text-secondary-foreground/60 hover:text-primary transition-colors"
+                >
                   {t('footer.privacy')}
                 </a>
-                <a href="#" className="text-secondary-foreground/60 hover:text-primary transition-colors">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a
+                  href="#"
+                  className="text-secondary-foreground/60 hover:text-primary transition-colors"
+                >
                   {t('footer.terms')}
                 </a>
               </div>

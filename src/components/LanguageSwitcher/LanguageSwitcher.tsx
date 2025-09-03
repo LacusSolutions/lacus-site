@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { ChevronDown, Globe } from 'lucide-react';
+import { type ReactNode, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, ChevronDown } from 'lucide-react';
+
 import {
   Button,
   DropdownMenu,
@@ -13,7 +14,7 @@ interface LanguageSwitcherProps {
   isScrolled?: boolean;
 }
 
-export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps) {
+export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps): ReactNode {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,12 +23,12 @@ export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps) 
     { code: 'en', name: 'English', flag: '🇺🇸', short: 'EN' },
   ];
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
-  const handleLanguageChange = (languageCode: string) => {
+  function handleLanguageChange(languageCode: string): void {
     i18n.changeLanguage(languageCode);
     setIsOpen(false);
-  };
+  }
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -41,10 +42,7 @@ export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps) 
           <span className="transition-all duration-500">
             {isScrolled ? currentLanguage.short : currentLanguage.name}
           </span>
-          <ChevronDown
-            size={14}
-            className={`transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          />
+          <ChevronDown size={14} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

@@ -1,6 +1,7 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import { default as i18n } from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
+
 import enTranslations from './locales/en.json';
 import ptTranslations from './locales/pt.json';
 
@@ -16,28 +17,37 @@ const resources = {
 // Custom language detector that considers Portuguese-speaking countries
 const customLanguageDetector = {
   name: 'customLanguageDetector',
-  lookup() {
+  lookup(): string {
     // Get browser language
     const browserLang = navigator.language || navigator.languages?.[0];
-    
+
     // Portuguese-speaking countries/regions
     const portugueseRegions = [
-      'pt', 'pt-BR', 'pt-PT', 'pt-AO', 'pt-MZ', 'pt-CV', 'pt-GW', 'pt-ST', 'pt-TL'
+      'pt',
+      'pt-BR',
+      'pt-PT',
+      'pt-AO',
+      'pt-MZ',
+      'pt-CV',
+      'pt-GW',
+      'pt-ST',
+      'pt-TL',
     ];
-    
+
     // Check if user is from Portuguese-speaking region
-    if (browserLang && portugueseRegions.some(region => 
-      browserLang.toLowerCase().startsWith(region.toLowerCase())
-    )) {
+    if (
+      browserLang &&
+      portugueseRegions.some((region) => browserLang.toLowerCase().startsWith(region.toLowerCase()))
+    ) {
       return 'pt';
     }
-    
+
     // Default to English for rest of the world
     return 'en';
   },
-  cacheUserLanguage() {
+  cacheUserLanguage(): void {
     // Optional: Cache the language selection
-  }
+  },
 };
 
 i18n
@@ -47,12 +57,10 @@ i18n
     resources,
     fallbackLng: 'en',
     debug: false,
-    
     detection: {
       order: ['customLanguageDetector', 'localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
     },
-
     interpolation: {
       escapeValue: false,
     },

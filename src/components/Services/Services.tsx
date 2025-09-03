@@ -1,9 +1,11 @@
+import { Database, Globe, Smartphone } from 'lucide-react';
+import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Smartphone, Globe, Database, Cog, Cloud, Shield } from 'lucide-react';
+
 import { Button } from '~/components/ui';
 import { useInView } from '~/hooks';
 
-export function Services() {
+export function Services(): ReactNode {
   const { t } = useTranslation();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: gridRef, isInView: gridInView } = useInView();
@@ -14,20 +16,20 @@ export function Services() {
       icon: Globe,
       title: t('services.web_dev.title'),
       description: t('services.web_dev.description'),
-      features: t('services.web_dev.features', { returnObjects: true }) as string[]
+      features: t('services.web_dev.features', { returnObjects: true }) as string[],
     },
     {
       icon: Smartphone,
       title: t('services.mobile_dev.title'),
       description: t('services.mobile_dev.description'),
-      features: t('services.mobile_dev.features', { returnObjects: true }) as string[]
+      features: t('services.mobile_dev.features', { returnObjects: true }) as string[],
     },
     {
       icon: Database,
       title: t('services.api_dev.title'),
       description: t('services.api_dev.description'),
-      features: t('services.api_dev.features', { returnObjects: true }) as string[]
-    }
+      features: t('services.api_dev.features', { returnObjects: true }) as string[],
+    },
   ];
 
   return (
@@ -41,9 +43,7 @@ export function Services() {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('services.title')}
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('services.title')}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('services.subtitle')}
             </p>
@@ -64,7 +64,7 @@ export function Services() {
                 }`}
                 style={{
                   animationDelay: gridInView ? `${index * 100 + 300}ms` : '0ms',
-                  animationFillMode: 'both'
+                  animationFillMode: 'both',
                 }}
               >
                 <div className="bg-gradient-primary p-3 rounded-lg w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -75,9 +75,7 @@ export function Services() {
                   {service.title}
                 </h3>
 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
 
                 <div className="space-y-2">
                   {service.features.map((feature, idx) => (
