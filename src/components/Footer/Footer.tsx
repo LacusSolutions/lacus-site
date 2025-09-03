@@ -99,16 +99,7 @@ export function Footer(): ReactNode {
           <div className="border-t border-secondary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-secondary-foreground/60 text-sm">
-                © {currentYear}{' '}
-                <span className="inline-flex items-center gap-2 font-poppins font-bold text-lacus-brand">
-                  <img
-                    src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
-                    alt="Lacus Logo"
-                    className="w-4 h-4"
-                  />
-                  Lacus
-                </span>
-                . {t('footer.copyright')}
+                <strong>Lacus Solutions</strong> &copy; {currentYear} • {t('footer.copyright')}
               </p>
 
               <div className="flex gap-6 text-sm">
