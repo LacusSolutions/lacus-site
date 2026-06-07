@@ -4,7 +4,9 @@
     "services": "Serviços",
     "projects": "Projetos",
     "contact": "Contato",
-    "talk_to_us": "Fale Conosco"
+    "talk_to_us": "Fale Conosco",
+    "open_menu": "Abrir menu",
+    "close_menu": "Fechar menu"
   },
   "hero": {
     "badge": "Soluções Tecnológicas Inovadoras",
