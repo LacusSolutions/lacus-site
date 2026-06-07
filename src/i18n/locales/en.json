@@ -4,7 +4,9 @@
     "services": "Services",
     "projects": "Projects",
     "contact": "Contact",
-    "talk_to_us": "Talk to Us"
+    "talk_to_us": "Talk to Us",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu"
   },
   "hero": {
     "badge": "Innovative Technology Solutions",
