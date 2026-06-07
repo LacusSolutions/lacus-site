@@ -91,7 +91,12 @@ export function Header(): ReactNode {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="text-primary" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="text-primary"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? t('nav.close_menu') : t('nav.open_menu')}
+            aria-expanded={isMenuOpen}
+          >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
