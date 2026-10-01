@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { type ReactNode } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
 
@@ -18,6 +19,7 @@ export default function App(): ReactNode {
         </Routes>
         <WhatsAppButton />
       </BrowserRouter>
+      <Analytics />
     </TooltipProvider>
   );
 }
