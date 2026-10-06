@@ -19,7 +19,7 @@
 
 Example component directory:
 
-```
+```text
 Button/
   Button.tsx
   Button.module.scss
