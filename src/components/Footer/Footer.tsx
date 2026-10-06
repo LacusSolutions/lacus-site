@@ -46,7 +46,7 @@ export function Footer(): ReactNode {
                   alt="Lacus Logo"
                   className="w-10 h-10"
                 />
-                <div className="text-3xl font-poppins font-bold text-lacus-brand">Lacus</div>
+                <div className="text-3xl font-poppins font-bold text-primary">Lacus</div>
               </div>
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
                 {t('footer.description')}
