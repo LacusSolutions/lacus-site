@@ -1,14 +1,16 @@
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { GithubIcon, LinkedinIcon } from '~/components/icons';
 
 export function Footer(): ReactNode {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: GithubIcon, href: '#', label: 'GitHub' },
+    { icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:contato@lacus.com.br', label: 'Email' },
     { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' },
   ];
