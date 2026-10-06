@@ -44,7 +44,7 @@ export function NotFound(): ReactNode {
     setMeta('meta[name="twitter:title"]', 'content', NOT_FOUND_TITLE);
     setMeta('meta[name="twitter:description"]', 'content', NOT_FOUND_DESCRIPTION);
 
-    return () => {
+    return (): void => {
       document.title = previousTitle;
       if (robots && previousRobots !== null) robots.setAttribute('content', previousRobots);
     };
