@@ -5,7 +5,7 @@ import { type ReactNode } from 'react';
 import { Home } from '~/components/Home';
 import { JsonLd } from '~/components/JsonLd';
 import { type Locale, routing } from '~/i18n/routing';
-import { SITE_URL } from '~/lib/site';
+import { buildPageMetadata, getPageMetadataTranslations } from '~/lib/seo';
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -19,46 +19,33 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
-  const languages: Record<string, string> = {
-    en: `${SITE_URL}/en/`,
-    'pt-BR': `${SITE_URL}/pt/`,
-    'x-default': `${SITE_URL}/en/`,
-  };
-
-  return {
-    title: t('title'),
-    description: t('description'),
-    keywords: t('keywords'),
-    alternates: {
-      canonical: `${SITE_URL}/${locale}/`,
-      languages,
-    },
-    openGraph: {
-      type: 'website',
-      url: `${SITE_URL}/${locale}/`,
-      siteName: 'Lacus',
-      locale: locale === 'pt' ? 'pt_BR' : 'en_US',
-      title: t('title'),
-      description: t('description'),
-      images: [{ url: `${SITE_URL}/og/og-image.png` }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('title'),
-      description: t('description'),
-      images: [`${SITE_URL}/og/og-image.png`],
-    },
-  };
+  return buildPageMetadata({
+    locale: locale as Locale,
+    translations: getPageMetadataTranslations(t),
+  });
 }
 
 export default async function LocaleHomePage({ params }: PageProps): Promise<ReactNode> {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'metadata' });
+  const metadataT = await getTranslations({ locale, namespace: 'metadata' });
+  const servicesT = await getTranslations({ locale, namespace: 'services' });
+
+  const services = [
+    { name: servicesT('web_dev.title'), description: servicesT('web_dev.description') },
+    { name: servicesT('mobile_dev.title'), description: servicesT('mobile_dev.description') },
+    { name: servicesT('api_dev.title'), description: servicesT('api_dev.description') },
+  ];
 
   return (
     <>
-      <JsonLd description={t('description')} />
+      <JsonLd
+        locale={locale as Locale}
+        title={metadataT('title')}
+        description={metadataT('description')}
+        tagline={metadataT('tagline')}
+        services={services}
+      />
       <Home />
     </>
   );

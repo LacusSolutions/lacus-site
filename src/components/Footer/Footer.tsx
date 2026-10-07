@@ -6,16 +6,17 @@ import Image from 'next/image';
 import { type ReactNode } from 'react';
 
 import { GithubIcon, LinkedinIcon } from '~/components/icons';
+import { SITE_CONTACT } from '~/lib/site';
 
 export function Footer(): ReactNode {
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: GithubIcon, href: '#', label: 'GitHub' },
-    { icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contato@lacus.com.br', label: 'Email' },
-    { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' },
+    { icon: GithubIcon, href: '#', label: t('footer.social_github') },
+    { icon: LinkedinIcon, href: '#', label: t('footer.social_linkedin') },
+    { icon: Mail, href: `mailto:${SITE_CONTACT.email}`, label: t('footer.social_email') },
+    { icon: Phone, href: `tel:${SITE_CONTACT.phoneTel}`, label: t('footer.social_phone') },
   ];
 
   const quickLinks = [
@@ -37,7 +38,7 @@ export function Footer(): ReactNode {
               <div className="flex items-center gap-3 mb-4">
                 <Image
                   src="/brand/logo.png"
-                  alt="Lacus Logo"
+                  alt={t('a11y.logo_alt')}
                   width={40}
                   height={40}
                   className="w-10 h-10"
@@ -49,9 +50,9 @@ export function Footer(): ReactNode {
               </p>
 
               <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social) => (
                   <a
-                    key={index}
+                    key={social.label}
                     href={social.href}
                     aria-label={social.label}
                     className="bg-secondary-foreground/10 p-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
@@ -65,8 +66,8 @@ export function Footer(): ReactNode {
             <div>
               <h3 className="font-bold text-lg mb-6">{t('footer.quick_links')}</h3>
               <ul className="space-y-3">
-                {quickLinks.map((link, index) => (
-                  <li key={index}>
+                {quickLinks.map((link) => (
+                  <li key={link.href}>
                     <a
                       href={link.href}
                       className="text-secondary-foreground/80 hover:text-primary transition-colors duration-300"
@@ -81,8 +82,8 @@ export function Footer(): ReactNode {
             <div>
               <h3 className="font-bold text-lg mb-6">{t('footer.services_title')}</h3>
               <ul className="space-y-3">
-                {services.map((service, index) => (
-                  <li key={index}>
+                {services.map((service) => (
+                  <li key={service}>
                     <span className="text-secondary-foreground/80 text-sm">{service}</span>
                   </li>
                 ))}

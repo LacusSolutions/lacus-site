@@ -1,8 +1,8 @@
 import { forwardRef, type SVGProps } from 'react';
 
-type LinkedinIconProps = Omit<SVGProps<SVGSVGElement>, 'width' | 'height'> & {
+type LinkedinIconProps = {
   size?: number;
-};
+} & Omit<SVGProps<SVGSVGElement>, 'height' | 'width'>;
 
 export const LinkedinIcon = forwardRef<SVGSVGElement, LinkedinIconProps>(
   ({ size = 24, ...props }, ref) => (

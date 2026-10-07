@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { Poppins } from 'next/font/google';
@@ -8,11 +7,9 @@ import { type ReactNode } from 'react';
 import { Providers } from '~/components/Providers';
 import '~/index.scss';
 import { type Locale, routing } from '~/i18n/routing';
-import { SITE_URL } from '~/lib/site';
+import { defaultSiteMetadata } from '~/lib/seo';
 
-export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-};
+export const metadata = defaultSiteMetadata;
 
 const poppins = Poppins({
   subsets: ['latin'],

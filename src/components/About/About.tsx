@@ -27,7 +27,7 @@ export function About(): ReactNode {
   const missionBullets = t.raw('about.mission_bullets') as MissionBullet[];
 
   return (
-    <section id="sobre" className="py-24 bg-muted/30">
+    <section id="sobre" className="py-24 bg-muted/30" aria-labelledby="about-title">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div
@@ -36,7 +36,9 @@ export function About(): ReactNode {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('about.title')}</h2>
+            <h2 id="about-title" className="text-4xl md:text-5xl font-bold mb-6">
+              {t('about.title')}
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('about.subtitle')}</p>
           </div>
 

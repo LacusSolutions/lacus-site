@@ -1,8 +1,8 @@
 import { forwardRef, type SVGProps } from 'react';
 
-type GithubIconProps = Omit<SVGProps<SVGSVGElement>, 'width' | 'height'> & {
+type GithubIconProps = {
   size?: number;
-};
+} & Omit<SVGProps<SVGSVGElement>, 'height' | 'width'>;
 
 export const GithubIcon = forwardRef<SVGSVGElement, GithubIconProps>(
   ({ size = 24, ...props }, ref) => (

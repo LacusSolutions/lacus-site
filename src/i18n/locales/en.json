@@ -7,7 +7,13 @@
     "contact": "Contact",
     "talk_to_us": "Talk to Us",
     "open_menu": "Open menu",
-    "close_menu": "Close menu"
+    "close_menu": "Close menu",
+    "primary_label": "Main navigation",
+    "mobile_label": "Mobile navigation"
+  },
+  "a11y": {
+    "skip_to_main": "Skip to main content",
+    "logo_alt": "Lacus logo"
   },
   "hero": {
     "badge": "Innovative Technology Solutions",
@@ -190,7 +196,11 @@
       "Cloud Computing",
       "Tech Consulting",
       "Digital Security"
-    ]
+    ],
+    "social_github": "GitHub",
+    "social_linkedin": "LinkedIn",
+    "social_email": "Email",
+    "social_phone": "Phone"
   },
   "whatsapp": {
     "chat_text": "Chat on WhatsApp",
@@ -206,6 +216,11 @@
   "metadata": {
     "title": "Lacus - Custom Software Development",
     "description": "We transform ideas into innovative technology solutions. Specialists in custom software development for businesses.",
-    "keywords": "software development, custom solutions, web applications, mobile, technology consulting, lacus"
+    "keywords": "software development, custom solutions, web applications, mobile, technology consulting, lacus",
+    "site_name": "Lacus",
+    "tagline": "We transform ideas into software",
+    "og_image_alt": "Lacus — custom software development for businesses",
+    "application_name": "Lacus",
+    "category": "technology"
   }
 }

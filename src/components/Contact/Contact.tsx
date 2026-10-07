@@ -6,6 +6,7 @@ import { type ChangeEvent, type FormEvent, type ReactNode, useState } from 'reac
 
 import { Button } from '~/components/ui';
 import { useInView, useToast } from '~/hooks';
+import { SITE_CONTACT } from '~/lib/site';
 
 export function Contact(): ReactNode {
   const t = useTranslations();
@@ -16,19 +17,19 @@ export function Contact(): ReactNode {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      content: 'contato@lacus.com.br',
-      link: 'mailto:contato@lacus.com.br',
+      content: SITE_CONTACT.email,
+      link: `mailto:${SITE_CONTACT.email}`,
     },
     {
       icon: Phone,
       title: t('contact.info.phone'),
-      content: '+55 (11) 9999-9999',
-      link: 'tel:+5511999999999',
+      content: SITE_CONTACT.phoneDisplay,
+      link: `tel:${SITE_CONTACT.phoneTel}`,
     },
     {
       icon: MapPin,
       title: t('contact.info.address'),
-      content: 'São Paulo, SP - Brasil',
+      content: SITE_CONTACT.address,
       link: '#',
     },
   ];
@@ -40,6 +41,7 @@ export function Contact(): ReactNode {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
   const { toast } = useToast();
 
   async function handleSubmit(event: FormEvent): Promise<void> {
@@ -48,10 +50,12 @@ export function Contact(): ReactNode {
 
     // Simulate form submission
     setTimeout(() => {
+      const successMessage = t('contact.form.success');
       toast({
-        title: t('contact.form.success'),
-        description: t('contact.form.success'),
+        title: successMessage,
+        description: successMessage,
       });
+      setStatusMessage(successMessage);
       setFormData({ name: '', email: '', company: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
@@ -65,7 +69,7 @@ export function Contact(): ReactNode {
   }
 
   return (
-    <section id="contato" className="py-24 bg-background">
+    <section id="contato" className="py-24 bg-background" aria-labelledby="contact-title">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -75,7 +79,9 @@ export function Contact(): ReactNode {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('contact.title')}</h2>
+            <h2 id="contact-title" className="text-4xl md:text-5xl font-bold mb-6">
+              {t('contact.title')}
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('contact.subtitle')}
             </p>
@@ -128,7 +134,10 @@ export function Contact(): ReactNode {
 
             {/* Contact Form */}
             <div className="bg-card p-8 rounded-lg shadow-card border">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6" aria-busy={isSubmitting}>
+                <div className="sr-only" aria-live="polite" role="status">
+                  {statusMessage}
+                </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">

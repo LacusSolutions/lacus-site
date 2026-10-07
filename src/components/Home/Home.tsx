@@ -3,6 +3,7 @@
 import { type ReactNode } from 'react';
 
 import { About, Contact, Footer, Header, Hero, Projects, Services } from '~/components';
+import { SkipLink } from '~/components/SkipLink';
 import { useHeaderHeight } from '~/hooks';
 
 export function Home(): ReactNode {
@@ -10,8 +11,9 @@ export function Home(): ReactNode {
 
   return (
     <div className="min-h-screen">
+      <SkipLink />
       <Header />
-      <main style={{ paddingTop: `${headerHeight}px` }}>
+      <main id="main-content" style={{ paddingTop: `${headerHeight}px` }}>
         <Hero />
         <About />
         <Services />

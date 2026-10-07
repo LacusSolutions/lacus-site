@@ -1,38 +1,30 @@
 import type { ReactNode } from 'react';
 
-import { SITE_URL } from '~/lib/site';
+import { type Locale } from '~/i18n/routing';
+
+import { buildJsonLdGraph, type JsonLdService } from './JsonLd.utils';
 
 interface JsonLdProps {
   description: string;
+  locale: Locale;
+  services: JsonLdService[];
+  tagline: string;
+  title: string;
 }
 
-export function JsonLd({ description }: JsonLdProps): ReactNode {
-  const organization = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Lacus',
+export function JsonLd({ locale, title, description, tagline, services }: JsonLdProps): ReactNode {
+  const graph = buildJsonLdGraph({
+    locale,
+    title,
     description,
-    url: SITE_URL,
-    logo: `${SITE_URL}/brand/logo.png`,
-  };
-
-  const website = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Lacus',
-    url: SITE_URL,
-  };
+    tagline,
+    services,
+  });
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+    />
   );
 }

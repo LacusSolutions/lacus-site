@@ -7,7 +7,13 @@
     "contact": "Contato",
     "talk_to_us": "Fale Conosco",
     "open_menu": "Abrir menu",
-    "close_menu": "Fechar menu"
+    "close_menu": "Fechar menu",
+    "primary_label": "Navegação principal",
+    "mobile_label": "Navegação mobile"
+  },
+  "a11y": {
+    "skip_to_main": "Ir para o conteúdo principal",
+    "logo_alt": "Logotipo Lacus"
   },
   "hero": {
     "badge": "Soluções Tecnológicas Inovadoras",
@@ -190,7 +196,11 @@
       "Cloud Computing",
       "Consultoria Tech",
       "Segurança Digital"
-    ]
+    ],
+    "social_github": "GitHub",
+    "social_linkedin": "LinkedIn",
+    "social_email": "E-mail",
+    "social_phone": "Telefone"
   },
   "whatsapp": {
     "chat_text": "Conversar no WhatsApp",
@@ -206,6 +216,11 @@
   "metadata": {
     "title": "Lacus - Desenvolvimento de Software Customizado",
     "description": "Transformamos ideias em soluções tecnológicas inovadoras. Especialistas em desenvolvimento de software customizado para empresas.",
-    "keywords": "desenvolvimento software, soluções customizadas, aplicativos web, mobile, consultoria tecnologia, lacus"
+    "keywords": "desenvolvimento software, soluções customizadas, aplicativos web, mobile, consultoria tecnologia, lacus",
+    "site_name": "Lacus",
+    "tagline": "Transformamos ideias em software",
+    "og_image_alt": "Lacus — desenvolvimento de software customizado para empresas",
+    "application_name": "Lacus",
+    "category": "technology"
   }
 }

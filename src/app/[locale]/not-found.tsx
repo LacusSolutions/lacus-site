@@ -1,28 +1,18 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { type ReactNode } from 'react';
+
+import { type Locale, routing } from '~/i18n/routing';
+import { buildNotFoundMetadata } from '~/lib/seo';
 
 import { NotFoundView } from './NotFoundView';
 
 export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const safeLocale = routing.locales.includes(locale as Locale) ? (locale as Locale) : 'en';
   const t = await getTranslations('notFound');
 
-  return {
-    title: t('title'),
-    description: t('message'),
-    robots: {
-      index: false,
-      follow: false,
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('message'),
-    },
-    twitter: {
-      title: t('title'),
-      description: t('message'),
-    },
-  };
+  return buildNotFoundMetadata(safeLocale, t('title'), t('message'));
 }
 
 export default function NotFound(): ReactNode {

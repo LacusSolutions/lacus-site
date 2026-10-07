@@ -1,0 +1,24 @@
+# Lacus Solutions
+
+> Custom software development — web, mobile, and APIs for businesses.
+
+## Summary (English)
+
+Lacus transforms ideas into software. We offer web development, mobile applications, and API integration with a focus on performance, security, and SEO-friendly delivery.
+
+- Canonical (English): https://www.lacus.solutions/en/
+- Canonical (Portuguese): https://www.lacus.solutions/pt/
+- Sitemap: https://www.lacus.solutions/sitemap.xml
+- Contact: contato@lacus.com.br
+
+## Resumo (Português)
+
+A Lacus transforma ideias em software. Desenvolvimento web, aplicativos mobile e APIs com foco em performance, segurança e boas práticas para buscadores.
+
+- Conteúdo em português: https://www.lacus.solutions/pt/
+
+## Services
+
+- Web Development
+- Mobile Development
+- API Development

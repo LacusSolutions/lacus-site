@@ -35,7 +35,7 @@ export function Services(): ReactNode {
   ];
 
   return (
-    <section id="servicos" className="py-24 bg-background">
+    <section id="servicos" className="py-24 bg-background" aria-labelledby="services-title">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -45,7 +45,9 @@ export function Services(): ReactNode {
               headerInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('services.title')}</h2>
+            <h2 id="services-title" className="text-4xl md:text-5xl font-bold mb-6">
+              {t('services.title')}
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('services.subtitle')}
             </p>

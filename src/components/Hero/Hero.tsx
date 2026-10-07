@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { type ReactNode, useMemo } from 'react';
 
 import { Button } from '~/components/ui';
-import { useInView, useTypewriter } from '~/hooks';
+import { useInView, usePrefersReducedMotion, useTypewriter } from '~/hooks';
 
 export function Hero(): ReactNode {
   const t = useTranslations();
@@ -19,12 +19,16 @@ export function Hero(): ReactNode {
     [locale],
   );
 
+  const prefersReducedMotion = usePrefersReducedMotion();
   const { text: animatedWord, showCursor } = useTypewriter({
     words,
     typeSpeed: 120,
     deleteSpeed: 80,
     delayBetweenWords: 2500,
+    loop: !prefersReducedMotion,
   });
+  const displayWord = prefersReducedMotion ? words[0] : animatedWord;
+  const displayCursor = !prefersReducedMotion && showCursor;
 
   const { ref: badgeRef, isInView: badgeInView } = useInView({ threshold: 0.3 });
   const { ref: titleRef, isInView: titleInView } = useInView({ threshold: 0.3 });
@@ -41,6 +45,7 @@ export function Hero(): ReactNode {
       <div
         className="absolute inset-0 opacity-20 bg-cover bg-center"
         style={{ backgroundImage: 'url(/hero-bg.jpg)' }}
+        aria-hidden="true"
       />
 
       {/* Content */}
@@ -66,9 +71,10 @@ export function Hero(): ReactNode {
           >
             {t('hero.title')}{' '}
             <span className="text-primary">
-              {animatedWord}
+              {displayWord}
               <span
-                className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
+                className={`inline-block w-1 h-[0.9em] bg-primary ml-1 ${displayCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}
+                aria-hidden="true"
               >
                 |
               </span>
@@ -115,7 +121,7 @@ export function Hero(): ReactNode {
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Code className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">{t('hero.feature_1_title')}</h3>
+              <p className="font-semibold mb-2">{t('hero.feature_1_title')}</p>
               <p className="text-sm">{t('hero.feature_1_desc')}</p>
             </div>
 
@@ -123,7 +129,7 @@ export function Hero(): ReactNode {
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Zap className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">{t('hero.feature_2_title')}</h3>
+              <p className="font-semibold mb-2">{t('hero.feature_2_title')}</p>
               <p className="text-sm">{t('hero.feature_2_desc')}</p>
             </div>
 
@@ -131,7 +137,7 @@ export function Hero(): ReactNode {
               <div className="bg-primary/20 p-4 rounded-full mb-4">
                 <Shield className="text-primary" size={32} />
               </div>
-              <h3 className="font-semibold mb-2">{t('hero.feature_3_title')}</h3>
+              <p className="font-semibold mb-2">{t('hero.feature_3_title')}</p>
               <p className="text-sm">{t('hero.feature_3_desc')}</p>
             </div>
           </div>
@@ -139,7 +145,7 @@ export function Hero(): ReactNode {
       </div>
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
