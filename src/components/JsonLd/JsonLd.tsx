@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-const SITE_URL = 'https://www.lacus.solutions';
+import { SITE_URL } from '~/lib/site';
 
 interface JsonLdProps {
   description: string;
