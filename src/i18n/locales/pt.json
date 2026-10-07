@@ -195,7 +195,7 @@
   "whatsapp": {
     "chat_text": "Conversar no WhatsApp",
     "qr_hint": "Escaneie para conversar",
-    "aria_mobile": "Chat on WhatsApp"
+    "aria_mobile": "Conversar no WhatsApp"
   },
   "notFound": {
     "title": "Página não encontrada (404) - Lacus",
