@@ -190,6 +190,7 @@
     "copyright": "Todos os direitos reservados.",
     "privacy": "Política de Privacidade",
     "terms": "Termos de Uso",
+    "cookie_settings": "Configurações de cookies",
     "services_list": [
       "Desenvolvimento Web",
       "Aplicativos Mobile",
@@ -202,6 +203,13 @@
     "social_linkedin": "LinkedIn",
     "social_email": "E-mail",
     "social_phone": "Telefone"
+  },
+  "cookies": {
+    "title": "Utilizamos cookies",
+    "message": "Usamos cookies opcionais de analytics para entender como visitantes usam o site. Você pode aceitar ou recusar cookies não essenciais.",
+    "privacy_link": "Saiba mais na Política de Privacidade",
+    "accept": "Aceitar",
+    "reject": "Recusar não essenciais"
   },
   "whatsapp": {
     "chat_text": "Conversar no WhatsApp",
@@ -299,6 +307,16 @@
         "title": "12. Alterações",
         "body": [
           "Podemos atualizar esta Política de Privacidade periodicamente. A data de “Última atualização” no topo refletirá a versão vigente. O uso continuado do site após alterações indica ciência da política atualizada."
+        ]
+      },
+      {
+        "title": "13. Cookies e consentimento",
+        "slug": "cookies",
+        "body": [
+          "Utilizamos um aviso de cookies neste site para que você possa aceitar ou recusar cookies e tecnologias similares não essenciais antes que sejam usados.",
+          "Armazenamento estritamente necessário (por exemplo, lembrar sua escolha de cookies no navegador) é usado para o funcionamento do aviso e não exige consentimento separado.",
+          "Se você aceitar, podemos carregar o Vercel Analytics para medir o tráfego de forma agregada. Se recusar, o analytics não é carregado. Você pode alterar sua escolha a qualquer momento em “Configurações de cookies” no rodapé do site.",
+          "Sua escolha fica armazenada localmente no navegador na chave lacus-cookie-consent até você limpar os dados do site ou reabrir as preferências pelo rodapé."
         ]
       }
     ]

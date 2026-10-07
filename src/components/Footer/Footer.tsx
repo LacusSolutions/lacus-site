@@ -5,12 +5,14 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { type ReactNode } from 'react';
 
+import { useCookieConsent } from '~/components/CookieConsent';
 import { GithubIcon, LinkedinIcon } from '~/components/icons';
 import { Link } from '~/i18n/navigation';
 import { SITE_CONTACT, SITE_SOCIAL } from '~/lib/site';
 
 export function Footer(): ReactNode {
   const t = useTranslations();
+  const { reopenPreferences } = useCookieConsent();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -124,6 +126,13 @@ export function Footer(): ReactNode {
                 >
                   {t('footer.terms')}
                 </Link>
+                <button
+                  type="button"
+                  onClick={reopenPreferences}
+                  className="text-secondary-foreground/60 hover:text-primary transition-colors"
+                >
+                  {t('footer.cookie_settings')}
+                </button>
               </div>
             </div>
           </div>

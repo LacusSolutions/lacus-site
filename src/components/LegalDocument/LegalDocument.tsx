@@ -11,6 +11,7 @@ export type LegalDocumentNamespace = 'privacy' | 'terms';
 
 interface LegalSection {
   body: string[];
+  slug?: string;
   title: string;
 }
 
@@ -36,7 +37,7 @@ export function LegalDocument({ namespace }: LegalDocumentProps): ReactNode {
 
           <div className={styles.sections}>
             {sections.map((section) => (
-              <section key={section.title} className={styles.section}>
+              <section key={section.title} id={section.slug} className={styles.section}>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>
                 {section.body.map((paragraph, paragraphIndex) => (
                   <p key={paragraphIndex} className={styles.paragraph}>

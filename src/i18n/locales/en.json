@@ -190,6 +190,7 @@
     "copyright": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
+    "cookie_settings": "Cookie settings",
     "services_list": [
       "Web Development",
       "Mobile Apps",
@@ -202,6 +203,13 @@
     "social_linkedin": "LinkedIn",
     "social_email": "Email",
     "social_phone": "Phone"
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "message": "We use optional analytics cookies to understand how visitors use our site. You can accept or reject non-essential cookies.",
+    "privacy_link": "Learn more in our Privacy Policy",
+    "accept": "Accept",
+    "reject": "Reject non-essential"
   },
   "whatsapp": {
     "chat_text": "Chat on WhatsApp",
@@ -299,6 +307,16 @@
         "title": "12. Changes",
         "body": [
           "We may update this Privacy Policy from time to time. The “Last updated” date at the top will reflect the latest version. Continued use of the site after changes constitutes acknowledgment of the updated policy."
+        ]
+      },
+      {
+        "title": "13. Cookies and consent",
+        "slug": "cookies",
+        "body": [
+          "We use a cookie notice on this site so you can accept or reject non-essential cookies and similar technologies before they are used.",
+          "Strictly necessary storage (for example, remembering your cookie choice in your browser) is used to make the notice work and does not require separate consent.",
+          "If you accept, we may load Vercel Analytics to measure aggregate traffic. If you reject, analytics is not loaded. You can change your choice at any time using “Cookie settings” in the site footer.",
+          "Your choice is stored locally in your browser under the key lacus-cookie-consent until you clear site data or reopen preferences from the footer."
         ]
       }
     ]

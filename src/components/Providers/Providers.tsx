@@ -1,18 +1,25 @@
 'use client';
 
-import { Analytics } from '@vercel/analytics/react';
 import { type ReactNode } from 'react';
 
 import { WhatsAppButton } from '~/components';
+import {
+  ConditionalAnalytics,
+  CookieConsent,
+  CookieConsentProvider,
+} from '~/components/CookieConsent';
 import { Toaster, TooltipProvider } from '~/components/ui';
 
 export function Providers({ children }: { children: ReactNode }): ReactNode {
   return (
-    <TooltipProvider>
-      {children}
-      <Toaster />
-      <WhatsAppButton />
-      <Analytics />
-    </TooltipProvider>
+    <CookieConsentProvider>
+      <TooltipProvider>
+        {children}
+        <Toaster />
+        <WhatsAppButton />
+        <ConditionalAnalytics />
+        <CookieConsent />
+      </TooltipProvider>
+    </CookieConsentProvider>
   );
 }
