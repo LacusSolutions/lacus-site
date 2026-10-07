@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
+    "commit": "commit",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
+    "@commitlint/prompt-cli": "^21.2.3",
     "@next/eslint-plugin-next": "16.4.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@testing-library/jest-dom": "^7.0.1",
