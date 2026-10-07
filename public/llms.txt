@@ -9,7 +9,12 @@ Lacus transforms ideas into software. We offer web development, mobile applicati
 - Canonical (English): https://www.lacus.solutions/en/
 - Canonical (Portuguese): https://www.lacus.solutions/pt/
 - Sitemap: https://www.lacus.solutions/sitemap.xml
-- Contact: contato@lacus.com.br
+- Contact: contact@lacus.solutions
+- Phone / WhatsApp: +55 (41) 98518-7730
+- GitHub: https://github.com/LacusSolutions
+- LinkedIn: https://linkedin.com/juliolmuller
+- Privacy: https://www.lacus.solutions/en/privacy/
+- Terms: https://www.lacus.solutions/en/terms/
 
 ## Resumo (Português)
 

@@ -157,7 +157,8 @@
     "info": {
       "email": "Email",
       "phone": "Telefone",
-      "address": "Endereço"
+      "service_model": "Modelo de atendimento",
+      "remote_only": "Atendimento remoto — trabalhamos com clientes online, sem endereço comercial público."
     },
     "benefits": {
       "title": "Por que escolher a Lacus?",

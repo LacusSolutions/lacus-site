@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { CheckCircle, Globe, Mail, Phone, Send } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { type ChangeEvent, type FormEvent, type ReactNode, useState } from 'react';
 
@@ -27,10 +27,10 @@ export function Contact(): ReactNode {
       link: `tel:${SITE_CONTACT.phoneTel}`,
     },
     {
-      icon: MapPin,
-      title: t('contact.info.address'),
-      content: SITE_CONTACT.address,
-      link: '#',
+      icon: Globe,
+      title: t('contact.info.service_model'),
+      content: t('contact.info.remote_only'),
+      link: undefined,
     },
   ];
 
@@ -105,12 +105,16 @@ export function Contact(): ReactNode {
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground">{info.title}</h4>
-                      <a
-                        href={info.link}
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {info.content}
-                      </a>
+                      {info.link ? (
+                        <a
+                          href={info.link}
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {info.content}
+                        </a>
+                      ) : (
+                        <p className="text-muted-foreground">{info.content}</p>
+                      )}
                     </div>
                   </div>
                 ))}

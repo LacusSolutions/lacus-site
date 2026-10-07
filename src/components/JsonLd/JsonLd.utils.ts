@@ -64,16 +64,10 @@ export function buildJsonLdGraph({
         description,
         url: SITE_URL,
         image: `${SITE_URL}${LOGO_PATH}`,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'São Paulo',
-          addressRegion: 'SP',
-          addressCountry: 'BR',
-        },
-        areaServed: {
-          '@type': 'Country',
-          name: 'Brazil',
-        },
+        areaServed: [
+          { '@type': 'Country', name: 'Brazil' },
+          { '@type': 'AdministrativeArea', name: 'Remote / online service' },
+        ],
         makesOffer: services.map((service) => ({
           '@type': 'Offer',
           itemOffered: {

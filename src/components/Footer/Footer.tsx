@@ -6,15 +6,26 @@ import Image from 'next/image';
 import { type ReactNode } from 'react';
 
 import { GithubIcon, LinkedinIcon } from '~/components/icons';
-import { SITE_CONTACT } from '~/lib/site';
+import { Link } from '~/i18n/navigation';
+import { SITE_CONTACT, SITE_SOCIAL } from '~/lib/site';
 
 export function Footer(): ReactNode {
   const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: GithubIcon, href: '#', label: t('footer.social_github') },
-    { icon: LinkedinIcon, href: '#', label: t('footer.social_linkedin') },
+    {
+      icon: GithubIcon,
+      href: SITE_SOCIAL.github,
+      label: t('footer.social_github'),
+      external: true,
+    },
+    {
+      icon: LinkedinIcon,
+      href: SITE_SOCIAL.linkedin,
+      label: t('footer.social_linkedin'),
+      external: true,
+    },
     { icon: Mail, href: `mailto:${SITE_CONTACT.email}`, label: t('footer.social_email') },
     { icon: Phone, href: `tel:${SITE_CONTACT.phoneTel}`, label: t('footer.social_phone') },
   ];
@@ -55,6 +66,9 @@ export function Footer(): ReactNode {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
+                    {...(social.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : undefined)}
                     className="bg-secondary-foreground/10 p-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
                   >
                     <social.icon size={20} />
@@ -98,20 +112,18 @@ export function Footer(): ReactNode {
               </p>
 
               <div className="flex gap-6 text-sm">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  href="#"
+                <Link
+                  href="/privacy"
                   className="text-secondary-foreground/60 hover:text-primary transition-colors"
                 >
                   {t('footer.privacy')}
-                </a>
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/terms"
                   className="text-secondary-foreground/60 hover:text-primary transition-colors"
                 >
                   {t('footer.terms')}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

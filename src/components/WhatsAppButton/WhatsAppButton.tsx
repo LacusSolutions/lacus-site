@@ -5,11 +5,12 @@ import { useTranslations } from 'next-intl';
 import { QRCodeSVG } from 'qrcode.react';
 import { type ReactNode, useState } from 'react';
 
+import { getWhatsAppUrl } from '~/lib/site';
+
 export function WhatsAppButton(): ReactNode {
   const t = useTranslations('whatsapp');
   const [isExpanded, setIsExpanded] = useState(false);
-  const phoneNumber = '5541985187730';
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const whatsappUrl = getWhatsAppUrl();
 
   function handleClick(): void {
     window.open(whatsappUrl, '_blank');

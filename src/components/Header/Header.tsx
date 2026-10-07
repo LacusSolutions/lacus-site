@@ -7,6 +7,7 @@ import { type ReactNode, useEffect, useId, useState } from 'react';
 
 import { LanguageSwitcher } from '~/components';
 import { useScrollPosition } from '~/hooks';
+import { Link } from '~/i18n/navigation';
 
 const navLinkClassName =
   'text-primary hover:text-primary/80 transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
@@ -18,10 +19,10 @@ export function Header(): ReactNode {
   const mobileNavId = useId();
 
   const navItems = [
-    { href: '#sobre', label: t('nav.about') },
-    { href: '#servicos', label: t('nav.services') },
-    { href: '#projetos', label: t('nav.projects') },
-    { href: '#contato', label: t('nav.contact') },
+    { href: '/#sobre', label: t('nav.about') },
+    { href: '/#servicos', label: t('nav.services') },
+    { href: '/#projetos', label: t('nav.projects') },
+    { href: '/#contato', label: t('nav.contact') },
   ];
 
   useEffect(() => {
@@ -89,9 +90,9 @@ export function Header(): ReactNode {
           >
             <nav className="flex items-center space-x-8" aria-label={t('nav.primary_label')}>
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className={navLinkClassName}>
+                <Link key={item.href} href={item.href} className={navLinkClassName}>
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -138,14 +139,14 @@ export function Header(): ReactNode {
           >
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   className={navLinkClassName}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <div className="flex items-center gap-4">
                 <LanguageSwitcher />
