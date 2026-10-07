@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { type ReactNode } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router';
 
@@ -8,15 +9,17 @@ import { Home, NotFound } from '~/pages';
 export default function App(): ReactNode {
   return (
     <TooltipProvider>
-      <Toaster />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <WhatsAppButton />
       </BrowserRouter>
+
+      <Toaster />
+      <WhatsAppButton />
+      <Analytics />
     </TooltipProvider>
   );
 }

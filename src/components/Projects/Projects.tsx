@@ -1,7 +1,8 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { GithubIcon } from '~/components/icons';
 import { Button } from '~/components/ui';
 import { useInView } from '~/hooks';
 
@@ -143,7 +144,7 @@ export function Projects(): ReactNode {
                       {t('projects.actions.view_live')}
                     </Button>
                     <Button variant="ghost" size="sm">
-                      <Github size={16} />
+                      <GithubIcon size={16} />
                     </Button>
                   </div>
                 </div>

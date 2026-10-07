@@ -1,14 +1,16 @@
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { GithubIcon, LinkedinIcon } from '~/components/icons';
 
 export function Footer(): ReactNode {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: GithubIcon, href: '#', label: 'GitHub' },
+    { icon: LinkedinIcon, href: '#', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:contato@lacus.com.br', label: 'Email' },
     { icon: Phone, href: 'tel:+5511999999999', label: 'Telefone' },
   ];
@@ -44,7 +46,7 @@ export function Footer(): ReactNode {
                   alt="Lacus Logo"
                   className="w-10 h-10"
                 />
-                <div className="text-3xl font-poppins font-bold text-lacus-brand">Lacus</div>
+                <div className="text-3xl font-poppins font-bold text-primary">Lacus</div>
               </div>
               <p className="text-secondary-foreground/80 mb-6 leading-relaxed">
                 {t('footer.description')}

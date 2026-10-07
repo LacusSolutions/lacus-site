@@ -84,7 +84,7 @@ export function WhatsAppButton(): ReactNode {
           }`}
           aria-label={isExpanded ? t('whatsapp.chat_text') : 'Chat on WhatsApp'}
         >
-          <MessageCircle className="w-6 h-6 flex-shrink-0" />
+          <MessageCircle className="w-6 h-6 shrink-0" />
           <span
             className={`whitespace-nowrap font-medium transition-all duration-300 ${
               isExpanded ? 'opacity-100 max-w-xs' : 'opacity-0 max-w-0 overflow-hidden'
