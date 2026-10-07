@@ -207,6 +207,184 @@
     "qr_hint": "Scan to chat",
     "aria_mobile": "Chat on WhatsApp"
   },
+  "privacy": {
+    "metadata": {
+      "title": "Privacy Policy | Lacus",
+      "description": "How Lacus Solutions collects, uses, and protects personal data on lacus.solutions.",
+      "keywords": "privacy policy, personal data, LGPD, lacus solutions"
+    },
+    "title": "Privacy Policy",
+    "intro": "This Privacy Policy describes how Lacus Solutions (“Lacus”, “we”, “us”) handles personal data when you visit https://www.lacus.solutions/ or contact us through this website.",
+    "last_updated_label": "Last updated",
+    "last_updated_date": "October 7, 2025",
+    "back_link": "Back to home",
+    "sections": [
+      {
+        "title": "1. Who we are",
+        "body": [
+          "Lacus Solutions is a software development company that provides custom web, mobile, and API solutions. We operate remotely and serve clients primarily online.",
+          "For privacy-related questions, contact us at contact@lacus.solutions or +55 (41) 98518-7730."
+        ]
+      },
+      {
+        "title": "2. Scope",
+        "body": [
+          "This policy applies to personal data processed through our institutional website, including the contact form, email, phone, WhatsApp links, and analytics on the site.",
+          "It does not cover third-party websites linked from our pages (for example, GitHub or LinkedIn), which have their own policies."
+        ]
+      },
+      {
+        "title": "3. Data we collect",
+        "body": [
+          "Contact form: if you submit the form, we may receive your name, email address, company name (optional), and message content.",
+          "Communications: if you email or message us, we process the information you choose to send.",
+          "Technical and usage data: our hosting and analytics providers may collect data such as IP address, browser type, device information, pages viewed, and approximate location derived from IP. We use Vercel Analytics on this site to understand aggregate traffic and improve the experience."
+        ]
+      },
+      {
+        "title": "4. How we use data",
+        "body": [
+          "We use personal data to respond to inquiries, evaluate project requests, provide services you ask for, maintain and secure the website, and understand how the site is used in aggregate.",
+          "We do not sell your personal data."
+        ]
+      },
+      {
+        "title": "5. Legal bases (Brazil — LGPD)",
+        "body": [
+          "Where applicable under Lei Geral de Proteção de Dados (LGPD), we rely on bases such as your consent (for example, when you submit the contact form), performance of steps prior to a contract at your request, legitimate interests in operating and improving our website and communications, and compliance with legal obligations.",
+          "You may withdraw consent where processing is consent-based, without affecting prior lawful processing."
+        ]
+      },
+      {
+        "title": "6. Sharing and processors",
+        "body": [
+          "We may share data with service providers that help us operate the website (for example, hosting, deployment, and analytics), subject to appropriate safeguards and only as needed for their services.",
+          "We may also disclose information if required by law or to protect our rights, users, or the public."
+        ]
+      },
+      {
+        "title": "7. Retention",
+        "body": [
+          "We keep personal data only as long as necessary for the purposes described in this policy, including to handle your request, maintain business records, and meet legal requirements.",
+          "Aggregate analytics data may be retained according to our providers’ policies."
+        ]
+      },
+      {
+        "title": "8. Security",
+        "body": [
+          "We apply reasonable technical and organizational measures to protect personal data. No method of transmission or storage is completely secure; we cannot guarantee absolute security."
+        ]
+      },
+      {
+        "title": "9. Your rights",
+        "body": [
+          "Depending on applicable law (including LGPD), you may request confirmation of processing, access, correction, anonymization, portability, deletion of unnecessary data, information about sharing, and revocation of consent.",
+          "To exercise your rights, contact contact@lacus.solutions. We may need to verify your identity before responding."
+        ]
+      },
+      {
+        "title": "10. International transfers",
+        "body": [
+          "Our website and some providers may process data in countries other than yours. When we use such services, we take steps consistent with applicable law to protect your data."
+        ]
+      },
+      {
+        "title": "11. Children",
+        "body": [
+          "This website is not directed at children under 18, and we do not knowingly collect personal data from children."
+        ]
+      },
+      {
+        "title": "12. Changes",
+        "body": [
+          "We may update this Privacy Policy from time to time. The “Last updated” date at the top will reflect the latest version. Continued use of the site after changes constitutes acknowledgment of the updated policy."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "metadata": {
+      "title": "Terms of Use | Lacus",
+      "description": "Terms governing use of the Lacus Solutions institutional website at lacus.solutions.",
+      "keywords": "terms of use, website terms, lacus solutions"
+    },
+    "title": "Terms of Use",
+    "intro": "These Terms of Use (“Terms”) govern access to and use of the Lacus Solutions website at https://www.lacus.solutions/ (the “Site”). By using the Site, you agree to these Terms.",
+    "last_updated_label": "Last updated",
+    "last_updated_date": "October 7, 2025",
+    "back_link": "Back to home",
+    "sections": [
+      {
+        "title": "1. About the Site",
+        "body": [
+          "The Site is an institutional page that presents Lacus Solutions, our services, and ways to contact us. Content is provided for general information only."
+        ]
+      },
+      {
+        "title": "2. No professional relationship",
+        "body": [
+          "Browsing the Site or sending a message through the contact form does not by itself create a client, partnership, or employment relationship with Lacus.",
+          "Any project or contract requires a separate agreement between you and Lacus."
+        ]
+      },
+      {
+        "title": "3. Acceptable use",
+        "body": [
+          "You agree not to misuse the Site, including by attempting unauthorized access, interfering with operation, scraping in violation of law or robots rules, transmitting malware, or using the Site for unlawful purposes.",
+          "You must provide accurate information when contacting us."
+        ]
+      },
+      {
+        "title": "4. Intellectual property",
+        "body": [
+          "The Site, including text, branding, layout, logos, and other materials (except third-party content), is owned by Lacus Solutions or its licensors and is protected by applicable intellectual property laws.",
+          "You may view and download content for personal, non-commercial use only. You may not copy, modify, distribute, or create derivative works without our prior written permission."
+        ]
+      },
+      {
+        "title": "5. Third-party links",
+        "body": [
+          "The Site may link to third-party services (for example, GitHub, LinkedIn, or WhatsApp). We are not responsible for their content, policies, or practices."
+        ]
+      },
+      {
+        "title": "6. Disclaimer",
+        "body": [
+          "The Site and its content are provided “as is” and “as available” without warranties of any kind, whether express or implied, including merchantability, fitness for a particular purpose, or non-infringement.",
+          "We do not warrant that the Site will be uninterrupted, error-free, or free of harmful components."
+        ]
+      },
+      {
+        "title": "7. Limitation of liability",
+        "body": [
+          "To the maximum extent permitted by law, Lacus Solutions and its team shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for loss of profits, data, or goodwill arising from your use of the Site.",
+          "Our total liability for claims related to the Site shall not exceed the amount you paid to us for use of the Site in the twelve months before the claim (typically zero for this institutional Site)."
+        ]
+      },
+      {
+        "title": "8. Privacy",
+        "body": [
+          "Our Privacy Policy explains how we handle personal data. By using the Site, you also acknowledge that policy."
+        ]
+      },
+      {
+        "title": "9. Changes",
+        "body": [
+          "We may modify these Terms or the Site at any time. The “Last updated” date indicates the current version. Your continued use after changes means you accept the revised Terms."
+        ]
+      },
+      {
+        "title": "10. Governing law",
+        "body": [
+          "These Terms are governed by the laws of the Federative Republic of Brazil. Courts in Brazil shall have exclusive jurisdiction, without prejudice to mandatory consumer protections where applicable."
+        ]
+      },
+      {
+        "title": "11. Contact",
+        "body": ["Questions about these Terms: contact@lacus.solutions or +55 (41) 98518-7730."]
+      }
+    ]
+  },
   "notFound": {
     "title": "Page Not Found (404) - Lacus",
     "heading": "404",

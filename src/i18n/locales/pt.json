@@ -207,6 +207,184 @@
     "qr_hint": "Escaneie para conversar",
     "aria_mobile": "Conversar no WhatsApp"
   },
+  "privacy": {
+    "metadata": {
+      "title": "Política de Privacidade | Lacus",
+      "description": "Como a Lacus Solutions coleta, usa e protege dados pessoais em lacus.solutions.",
+      "keywords": "política de privacidade, dados pessoais, LGPD, lacus solutions"
+    },
+    "title": "Política de Privacidade",
+    "intro": "Esta Política de Privacidade descreve como a Lacus Solutions (“Lacus”, “nós”) trata dados pessoais quando você visita https://www.lacus.solutions/ ou entra em contato conosco por meio deste site.",
+    "last_updated_label": "Última atualização",
+    "last_updated_date": "7 de outubro de 2025",
+    "back_link": "Voltar para o início",
+    "sections": [
+      {
+        "title": "1. Quem somos",
+        "body": [
+          "A Lacus Solutions é uma empresa de desenvolvimento de software que oferece soluções web, mobile e APIs sob medida. Atuamos de forma remota e atendemos clientes principalmente online.",
+          "Para questões sobre privacidade, entre em contato pelo e-mail contact@lacus.solutions ou telefone +55 (41) 98518-7730."
+        ]
+      },
+      {
+        "title": "2. Escopo",
+        "body": [
+          "Esta política se aplica aos dados pessoais tratados por meio do nosso site institucional, incluindo o formulário de contato, e-mail, telefone, links para WhatsApp e analytics do site.",
+          "Ela não cobre sites de terceiros linkados a partir das nossas páginas (por exemplo, GitHub ou LinkedIn), que possuem políticas próprias."
+        ]
+      },
+      {
+        "title": "3. Dados que coletamos",
+        "body": [
+          "Formulário de contato: se você enviar o formulário, podemos receber nome, e-mail, nome da empresa (opcional) e conteúdo da mensagem.",
+          "Comunicações: se você nos enviar e-mail ou mensagem, tratamos as informações que você decidir compartilhar.",
+          "Dados técnicos e de uso: nossa hospedagem e ferramentas de analytics podem coletar dados como endereço IP, tipo de navegador, informações do dispositivo, páginas visitadas e localização aproximada derivada do IP. Utilizamos Vercel Analytics neste site para entender o tráfego de forma agregada e melhorar a experiência."
+        ]
+      },
+      {
+        "title": "4. Como usamos os dados",
+        "body": [
+          "Usamos dados pessoais para responder solicitações, avaliar pedidos de projeto, prestar serviços que você solicitar, manter e proteger o site e compreender o uso do site de forma agregada.",
+          "Não vendemos seus dados pessoais."
+        ]
+      },
+      {
+        "title": "5. Bases legais (LGPD)",
+        "body": [
+          "Quando aplicável à Lei Geral de Proteção de Dados (LGPD), nos apoiamos em bases como consentimento (por exemplo, ao enviar o formulário de contato), execução de procedimentos preliminares a contrato a seu pedido, legítimo interesse na operação e melhoria do site e comunicações, e cumprimento de obrigações legais.",
+          "Você pode revogar o consentimento quando o tratamento for baseado nele, sem afetar tratamentos anteriores realizados com base legal adequada."
+        ]
+      },
+      {
+        "title": "6. Compartilhamento e operadores",
+        "body": [
+          "Podemos compartilhar dados com prestadores de serviço que nos ajudam a operar o site (por exemplo, hospedagem, deploy e analytics), com salvaguardas adequadas e apenas na medida necessária aos serviços deles.",
+          "Também podemos divulgar informações quando exigido por lei ou para proteger nossos direitos, usuários ou o público."
+        ]
+      },
+      {
+        "title": "7. Retenção",
+        "body": [
+          "Mantemos dados pessoais apenas pelo tempo necessário às finalidades descritas nesta política, inclusive para atender sua solicitação, manter registros comerciais e cumprir exigências legais.",
+          "Dados agregados de analytics podem ser retidos conforme as políticas dos nossos provedores."
+        ]
+      },
+      {
+        "title": "8. Segurança",
+        "body": [
+          "Adotamos medidas técnicas e organizacionais razoáveis para proteger dados pessoais. Nenhum método de transmissão ou armazenamento é totalmente seguro; não podemos garantir segurança absoluta."
+        ]
+      },
+      {
+        "title": "9. Seus direitos",
+        "body": [
+          "Conforme a legislação aplicável (incluindo a LGPD), você pode solicitar confirmação de tratamento, acesso, correção, anonimização, portabilidade, eliminação de dados desnecessários, informações sobre compartilhamento e revogação de consentimento.",
+          "Para exercer seus direitos, escreva para contact@lacus.solutions. Podemos precisar confirmar sua identidade antes de responder."
+        ]
+      },
+      {
+        "title": "10. Transferências internacionais",
+        "body": [
+          "Nosso site e alguns provedores podem processar dados em países diferentes do seu. Quando utilizamos esses serviços, adotamos medidas compatíveis com a lei aplicável para proteger seus dados."
+        ]
+      },
+      {
+        "title": "11. Crianças",
+        "body": [
+          "Este site não se destina a menores de 18 anos, e não coletamos intencionalmente dados pessoais de crianças."
+        ]
+      },
+      {
+        "title": "12. Alterações",
+        "body": [
+          "Podemos atualizar esta Política de Privacidade periodicamente. A data de “Última atualização” no topo refletirá a versão vigente. O uso continuado do site após alterações indica ciência da política atualizada."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "metadata": {
+      "title": "Termos de Uso | Lacus",
+      "description": "Termos que regem o uso do site institucional da Lacus Solutions em lacus.solutions.",
+      "keywords": "termos de uso, condições de uso, lacus solutions"
+    },
+    "title": "Termos de Uso",
+    "intro": "Estes Termos de Uso (“Termos”) regem o acesso e o uso do site da Lacus Solutions em https://www.lacus.solutions/ (o “Site”). Ao usar o Site, você concorda com estes Termos.",
+    "last_updated_label": "Última atualização",
+    "last_updated_date": "7 de outubro de 2025",
+    "back_link": "Voltar para o início",
+    "sections": [
+      {
+        "title": "1. Sobre o Site",
+        "body": [
+          "O Site é uma página institucional que apresenta a Lacus Solutions, nossos serviços e formas de contato. O conteúdo é oferecido apenas para informação geral."
+        ]
+      },
+      {
+        "title": "2. Ausência de relação contratual",
+        "body": [
+          "Navegar no Site ou enviar mensagem pelo formulário de contato não cria, por si só, relação de cliente, parceria ou emprego com a Lacus.",
+          "Qualquer projeto ou contrato exige acordo separado entre você e a Lacus."
+        ]
+      },
+      {
+        "title": "3. Uso aceitável",
+        "body": [
+          "Você concorda em não usar indevidamente o Site, incluindo tentativa de acesso não autorizado, interferência na operação, coleta automatizada em violação à lei ou às regras de robots, transmissão de malware ou uso do Site para fins ilícitos.",
+          "Você deve fornecer informações verídicas ao entrar em contato conosco."
+        ]
+      },
+      {
+        "title": "4. Propriedade intelectual",
+        "body": [
+          "O Site, incluindo textos, marca, layout, logotipos e demais materiais (exceto conteúdo de terceiros), pertence à Lacus Solutions ou a seus licenciadores e é protegido pelas leis de propriedade intelectual aplicáveis.",
+          "Você pode visualizar e baixar conteúdo apenas para uso pessoal e não comercial. Não copie, modifique, distribua ou crie obras derivadas sem nossa autorização prévia por escrito."
+        ]
+      },
+      {
+        "title": "5. Links de terceiros",
+        "body": [
+          "O Site pode conter links para serviços de terceiros (por exemplo, GitHub, LinkedIn ou WhatsApp). Não somos responsáveis pelo conteúdo, políticas ou práticas deles."
+        ]
+      },
+      {
+        "title": "6. Isenção de garantias",
+        "body": [
+          "O Site e seu conteúdo são fornecidos “no estado em que se encontram” e “conforme disponíveis”, sem garantias de qualquer tipo, expressas ou implícitas, incluindo comercialização, adequação a finalidade específica ou não violação.",
+          "Não garantimos que o Site será ininterrupto, livre de erros ou de componentes nocivos."
+        ]
+      },
+      {
+        "title": "7. Limitação de responsabilidade",
+        "body": [
+          "Na máxima extensão permitida pela lei, a Lacus Solutions e sua equipe não serão responsáveis por danos indiretos, incidentais, especiais, consequenciais ou punitivos, nem por perda de lucros, dados ou goodwill decorrentes do uso do Site.",
+          "Nossa responsabilidade total por reclamações relacionadas ao Site não excederá o valor pago por você a nós pelo uso do Site nos doze meses anteriores à reclamação (em geral, zero para este Site institucional)."
+        ]
+      },
+      {
+        "title": "8. Privacidade",
+        "body": [
+          "Nossa Política de Privacidade explica como tratamos dados pessoais. Ao usar o Site, você também reconhece essa política."
+        ]
+      },
+      {
+        "title": "9. Alterações",
+        "body": [
+          "Podemos modificar estes Termos ou o Site a qualquer momento. A data de “Última atualização” indica a versão vigente. O uso continuado após alterações significa aceitação dos Termos revisados."
+        ]
+      },
+      {
+        "title": "10. Lei aplicável",
+        "body": [
+          "Estes Termos são regidos pelas leis da República Federativa do Brasil. O foro no Brasil será competente, sem prejuízo de proteções legais obrigatórias ao consumidor, quando aplicável."
+        ]
+      },
+      {
+        "title": "11. Contato",
+        "body": ["Dúvidas sobre estes Termos: contact@lacus.solutions ou +55 (41) 98518-7730."]
+      }
+    ]
+  },
   "notFound": {
     "title": "Página não encontrada (404) - Lacus",
     "heading": "404",

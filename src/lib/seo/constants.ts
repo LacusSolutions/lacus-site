@@ -1,4 +1,4 @@
-import { SITE_URL } from '~/lib/site';
+import { SITE_SAME_AS, SITE_URL } from '~/lib/site';
 
 export const SITE_NAME = 'Lacus';
 
@@ -9,10 +9,7 @@ export const OG_IMAGE_TYPE = 'image/png';
 
 export const LOGO_PATH = '/brand/logo.png';
 
-/**
- * Placeholder until footer social links use real URLs.
- */
-export const SAME_AS: string[] = [];
+export const SAME_AS: string[] = [...SITE_SAME_AS];
 
 export const MANIFEST_PATH = '/manifest.webmanifest';
 
