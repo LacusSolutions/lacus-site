@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# Lacus Solutions
 
-## Project info
+Marketing site for Lacus — custom software development. Built with **Next.js** (App Router), **React**, **TypeScript**, **Tailwind CSS v4**, and **next-intl** (English + Brazilian Portuguese).
 
-**URL**: https://lovable.dev/projects/0856afa6-28ad-4886-a594-fb1f21d2ffb3
+## Requirements
 
-## How can I edit this code?
+- [Bun](https://bun.sh) 1.4.x (see `vercel.json`)
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/0856afa6-28ad-4886-a594-fb1f21d2ffb3) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Scripts
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+bun install
+bun run dev      # development server (http://localhost:3000)
+bun run build    # production build
+bun run start    # serve production build
+bun run lint     # ESLint
+bun run typecheck
+bun run test     # unit tests (Vitest)
 ```
 
-**Edit a file directly in GitHub**
+## Routing & i18n
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Locales: `/en/` (default) and `/pt/`
+- Bare `/` redirects via proxy using cookie → `Accept-Language` → `en`
+- Messages: `src/i18n/locales/en.json`, `src/i18n/locales/pt.json`
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Configured for **Vercel** with Bun (`vercel.json`).
 
-## What technologies are used for this project?
+## Project structure
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0856afa6-28ad-4886-a594-fb1f21d2ffb3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Application source lives under `src/` (`src/app` for routes, `src/components` for UI). Tooling config files remain at the repository root (`next.config.ts`, `postcss.config.js`, etc.).

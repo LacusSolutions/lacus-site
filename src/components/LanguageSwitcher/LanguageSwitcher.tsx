@@ -1,6 +1,8 @@
+'use client';
+
 import { ChevronDown, Globe } from 'lucide-react';
+import { useLocale } from 'next-intl';
 import { type ReactNode, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import {
   Button,
@@ -9,13 +11,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '~/components/ui';
+import { usePathname, useRouter } from '~/i18n/navigation';
 
 interface LanguageSwitcherProps {
   isScrolled?: boolean;
 }
 
 export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps): ReactNode {
-  const { i18n } = useTranslation();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
@@ -23,10 +28,10 @@ export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps):
     { code: 'en', name: 'English', flag: '🇺🇸', short: 'EN' },
   ];
 
-  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
+  const currentLanguage = languages.find((lang) => lang.code === locale) || languages[0];
 
   function handleLanguageChange(languageCode: string): void {
-    i18n.changeLanguage(languageCode);
+    router.replace(pathname, { locale: languageCode });
     setIsOpen(false);
   }
 
@@ -54,7 +59,7 @@ export function LanguageSwitcher({ isScrolled = false }: LanguageSwitcherProps):
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
             className={`flex items-center gap-3 cursor-pointer hover:bg-accent/50 ${
-              i18n.language === language.code ? 'bg-accent text-accent-foreground' : ''
+              locale === language.code ? 'bg-accent text-accent-foreground' : ''
             }`}
           >
             <span className="text-lg">{language.flag}</span>

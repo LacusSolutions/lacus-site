@@ -1,12 +1,15 @@
+'use client';
+
 import { Menu, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { type ReactNode, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { LanguageSwitcher } from '~/components';
 import { useScrollPosition } from '~/hooks';
 
 export function Header(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isScrolled = useScrollPosition(50);
 
@@ -39,10 +42,13 @@ export function Header(): ReactNode {
                 isScrolled ? 'justify-start' : 'justify-center'
               }`}
             >
-              <img
-                src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+              <Image
+                src="/brand/logo.png"
                 alt="Lacus Logo"
+                width={64}
+                height={64}
                 className={`transition-all duration-500 ${isScrolled ? 'w-8 h-8' : 'w-16 h-16'}`}
+                priority
               />
               <div
                 className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
@@ -80,10 +86,13 @@ export function Header(): ReactNode {
         <div className="md:hidden flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img
-              src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+            <Image
+              src="/brand/logo.png"
               alt="Lacus Logo"
+              width={32}
+              height={32}
               className="w-8 h-8"
+              priority
             />
             <div className="font-poppins font-bold text-primary text-2xl h-8 flex items-center">
               Lacus

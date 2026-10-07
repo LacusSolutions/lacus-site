@@ -1,20 +1,22 @@
+'use client';
+
 import { ArrowRight, Code, Shield, Zap } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import { type ReactNode, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Button } from '~/components/ui';
 import { useInView, useTypewriter } from '~/hooks';
 
 export function Hero(): ReactNode {
-  const { t, i18n } = useTranslation();
+  const t = useTranslations();
+  const locale = useLocale();
 
-  // Get animated words based on current language
   const words = useMemo(
     () =>
-      i18n.language === 'pt'
+      locale === 'pt'
         ? ['Ideias', 'Visões', 'Sonhos', 'Projetos', 'Conceitos']
         : ['Ideas', 'Visions', 'Dreams', 'Projects', 'Concepts'],
-    [i18n.language],
+    [locale],
   );
 
   const { text: animatedWord, showCursor } = useTypewriter({

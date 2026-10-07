@@ -1,11 +1,14 @@
+'use client';
+
 import { Mail, Phone } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import { type ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { GithubIcon, LinkedinIcon } from '~/components/icons';
 
 export function Footer(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -23,27 +26,20 @@ export function Footer(): ReactNode {
     { label: t('nav.contact'), href: '#contato' },
   ];
 
-  const services = [
-    'Desenvolvimento Web',
-    'Aplicativos Mobile',
-    'Sistemas Customizados',
-    'Cloud Computing',
-    'Consultoria Tech',
-    'Segurança Digital',
-  ];
+  const services = t.raw('footer.services_list') as string[];
 
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-6xl mx-auto">
-          {/* Main Footer Content */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img
-                  src="/lovable-uploads/12c27d29-c402-47e8-8e6d-563fe50445a5.png"
+                <Image
+                  src="/brand/logo.png"
                   alt="Lacus Logo"
+                  width={40}
+                  height={40}
                   className="w-10 h-10"
                 />
                 <div className="text-3xl font-poppins font-bold text-primary">Lacus</div>
@@ -52,7 +48,6 @@ export function Footer(): ReactNode {
                 {t('footer.description')}
               </p>
 
-              {/* Social Links */}
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -67,7 +62,6 @@ export function Footer(): ReactNode {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h3 className="font-bold text-lg mb-6">{t('footer.quick_links')}</h3>
               <ul className="space-y-3">
@@ -84,7 +78,6 @@ export function Footer(): ReactNode {
               </ul>
             </div>
 
-            {/* Services */}
             <div>
               <h3 className="font-bold text-lg mb-6">{t('footer.services_title')}</h3>
               <ul className="space-y-3">
@@ -97,7 +90,6 @@ export function Footer(): ReactNode {
             </div>
           </div>
 
-          {/* Bottom Footer */}
           <div className="border-t border-secondary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-secondary-foreground/60 text-sm">

@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Home",
     "about": "About",
     "services": "Services",
     "projects": "Projects",
@@ -33,7 +34,27 @@
       "projects": "Completed Projects",
       "experience": "Years of Experience",
       "success": "Success Rate"
-    }
+    },
+    "mission_heading_prefix": "Our",
+    "mission_heading_highlight": "Mission",
+    "mission_p": "We democratize access to cutting-edge technology by offering custom solutions that adapt perfectly to each client's specific needs. We believe technology should serve the business, not the other way around.",
+    "mission_bullets": [
+      {
+        "title": "Constant Innovation:",
+        "text": "We stay up to date with the latest technologies"
+      },
+      {
+        "title": "Guaranteed Quality:",
+        "text": "Rigorous testing and validation processes"
+      },
+      {
+        "title": "Dedicated Support:",
+        "text": "Full support before, during, and after the project"
+      }
+    ],
+    "experience_title": "Proven Experience",
+    "experience_p1": "With more than 5 years in the market, we have delivered solutions for companies across various industries.",
+    "experience_p2": "Our team combines technical expertise with business vision, ensuring every project delivers real value to the client."
   },
   "services": {
     "title": "Our Services",
@@ -84,7 +105,45 @@
     },
     "cta_title": "Ready to start your project?",
     "cta_subtitle": "Let's transform your idea into reality together",
-    "cta_button": "Start Now"
+    "cta_button": "Start Now",
+    "items": [
+      {
+        "title": "Corporate ERP System",
+        "description": "Full ERP development for business management with financial, inventory, and sales modules.",
+        "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
+        "category": "web"
+      },
+      {
+        "title": "Delivery App",
+        "description": "Complete mobile delivery app with geolocation, integrated payments, and admin dashboard.",
+        "tech": ["React Native", "Firebase", "Stripe", "Maps API"],
+        "category": "mobile"
+      },
+      {
+        "title": "E-learning Platform",
+        "description": "Online learning system with video lessons, interactive exercises, and progress tracking.",
+        "tech": ["Next.js", "TypeScript", "MongoDB", "Video.js"],
+        "category": "web"
+      },
+      {
+        "title": "Analytics Dashboard",
+        "description": "Business intelligence panel with real-time data visualization and customizable reports.",
+        "tech": ["Vue.js", "D3.js", "Python", "Docker"],
+        "category": "web"
+      },
+      {
+        "title": "Integration API",
+        "description": "Robust API development for integrating legacy systems with new applications.",
+        "tech": ["Node.js", "Express", "Redis", "JWT"],
+        "category": "api"
+      },
+      {
+        "title": "Industrial IoT System",
+        "description": "IoT solution for industrial monitoring with sensors, automatic alerts, and remote control.",
+        "tech": ["React", "MQTT", "InfluxDB", "Grafana"],
+        "category": "api"
+      }
+    ]
   },
   "contact": {
     "title": "Contact",
@@ -123,9 +182,30 @@
     "services_title": "Services",
     "copyright": "All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use"
+    "terms": "Terms of Use",
+    "services_list": [
+      "Web Development",
+      "Mobile Apps",
+      "Custom Systems",
+      "Cloud Computing",
+      "Tech Consulting",
+      "Digital Security"
+    ]
   },
   "whatsapp": {
-    "chat_text": "Chat on WhatsApp"
+    "chat_text": "Chat on WhatsApp",
+    "qr_hint": "Scan to chat",
+    "aria_mobile": "Chat on WhatsApp"
+  },
+  "notFound": {
+    "title": "Page Not Found (404) - Lacus",
+    "heading": "404",
+    "message": "Oops! Page not found",
+    "link": "Return to Home"
+  },
+  "metadata": {
+    "title": "Lacus - Custom Software Development",
+    "description": "We transform ideas into innovative technology solutions. Specialists in custom software development for businesses.",
+    "keywords": "software development, custom solutions, web applications, mobile, technology consulting, lacus"
   }
 }

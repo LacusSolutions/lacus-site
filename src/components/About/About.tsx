@@ -1,11 +1,18 @@
+'use client';
+
 import { Award, Target, TrendingUp, Users } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { type ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useInView } from '~/hooks';
 
+interface MissionBullet {
+  text: string;
+  title: string;
+}
+
 export function About(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: statsRef, isInView: statsInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
@@ -17,11 +24,12 @@ export function About(): ReactNode {
     { icon: TrendingUp, label: t('about.stats.success'), value: '98%' },
   ];
 
+  const missionBullets = t.raw('about.mission_bullets') as MissionBullet[];
+
   return (
     <section id="sobre" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <div
             ref={headerRef}
             className={`text-center mb-16 transition-all duration-700 ${
@@ -32,7 +40,6 @@ export function About(): ReactNode {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">{t('about.subtitle')}</p>
           </div>
 
-          {/* Stats */}
           <div
             ref={statsRef}
             className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 transition-all duration-700 delay-200 ${
@@ -53,61 +60,37 @@ export function About(): ReactNode {
             ))}
           </div>
 
-          {/* Content */}
           <div
             ref={contentRef}
             className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 delay-400 ${
               contentInView ? 'animate-fade-in' : 'opacity-0 translate-y-8'
             }`}
           >
-            {/* Mission */}
             <div className="space-y-6">
               <h3 className="text-2xl md:text-3xl font-bold">
-                Nossa{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Missão</span>
+                {t('about.mission_heading_prefix')}{' '}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">
+                  {t('about.mission_heading_highlight')}
+                </span>
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas que se
-                adaptam perfeitamente às necessidades específicas de cada cliente. Acreditamos que a
-                tecnologia deve servir ao negócio, não o contrário.
-              </p>
+              <p className="text-muted-foreground leading-relaxed">{t('about.mission_p')}</p>
               <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">Inovação Constante:</strong> Mantemo-nos
-                    atualizados com as últimas tecnologias
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">Qualidade Garantida:</strong> Rigorosos
-                    processos de teste e validação
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                  <p className="text-muted-foreground">
-                    <strong className="text-foreground">Suporte Dedicado:</strong> Acompanhamento
-                    completo antes, durante e após o projeto
-                  </p>
-                </div>
+                {missionBullets.map((bullet, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
+                    <p className="text-muted-foreground">
+                      <strong className="text-foreground">{bullet.title}</strong> {bullet.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Experience */}
             <div className="bg-muted/50 p-8 rounded-lg">
-              <h4 className="text-xl font-bold mb-6">Experiência Comprovada</h4>
+              <h4 className="text-xl font-bold mb-6">{t('about.experience_title')}</h4>
               <div className="space-y-4">
-                <p className="text-muted-foreground">
-                  Com mais de <strong className="text-primary">5 anos</strong> no mercado, já
-                  entregamos soluções para empresas de diversos segmentos.
-                </p>
-                <p className="text-muted-foreground">
-                  Nossa equipe combina expertise técnica com visão de negócio, garantindo que cada
-                  projeto agregue valor real ao cliente.
-                </p>
+                <p className="text-muted-foreground">{t('about.experience_p1')}</p>
+                <p className="text-muted-foreground">{t('about.experience_p2')}</p>
               </div>
             </div>
           </div>
