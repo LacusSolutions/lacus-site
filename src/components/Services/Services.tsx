@@ -1,12 +1,14 @@
+'use client';
+
 import { Database, Globe, Smartphone } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { type ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Button } from '~/components/ui';
 import { useInView } from '~/hooks';
 
 export function Services(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: gridRef, isInView: gridInView } = useInView();
   const { ref: ctaRef, isInView: ctaInView } = useInView();
@@ -16,19 +18,19 @@ export function Services(): ReactNode {
       icon: Globe,
       title: t('services.web_dev.title'),
       description: t('services.web_dev.description'),
-      features: t('services.web_dev.features', { returnObjects: true }) as string[],
+      features: t.raw('services.web_dev.features') as string[],
     },
     {
       icon: Smartphone,
       title: t('services.mobile_dev.title'),
       description: t('services.mobile_dev.description'),
-      features: t('services.mobile_dev.features', { returnObjects: true }) as string[],
+      features: t.raw('services.mobile_dev.features') as string[],
     },
     {
       icon: Database,
       title: t('services.api_dev.title'),
       description: t('services.api_dev.description'),
-      features: t('services.api_dev.features', { returnObjects: true }) as string[],
+      features: t.raw('services.api_dev.features') as string[],
     },
   ];
 

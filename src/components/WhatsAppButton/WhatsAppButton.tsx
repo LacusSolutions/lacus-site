@@ -1,10 +1,12 @@
+'use client';
+
 import { MessageCircle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { QRCodeSVG } from 'qrcode.react';
 import { type ReactNode, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export function WhatsAppButton(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations('whatsapp');
   const [isExpanded, setIsExpanded] = useState(false);
   const phoneNumber = '5541985187730';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
@@ -38,7 +40,7 @@ export function WhatsAppButton(): ReactNode {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-14 h-14 bg-secondary text-secondary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
-          aria-label="Chat on WhatsApp"
+          aria-label={t('aria_mobile')}
         >
           <MessageCircle className="w-6 h-6" />
         </a>
@@ -69,7 +71,7 @@ export function WhatsAppButton(): ReactNode {
               excavate: true,
             }}
           />
-          <p className="text-xs text-gray-600 mt-2 text-center">Escaneie para conversar</p>
+          <p className="text-xs text-gray-600 mt-2 text-center">{t('qr_hint')}</p>
         </div>
 
         {/* Button */}
@@ -82,7 +84,7 @@ export function WhatsAppButton(): ReactNode {
           className={`group flex items-center justify-center bg-secondary text-secondary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
             isExpanded ? 'pl-6 pr-4 py-3 gap-3' : 'w-14 h-14'
           }`}
-          aria-label={isExpanded ? t('whatsapp.chat_text') : 'Chat on WhatsApp'}
+          aria-label={isExpanded ? t('chat_text') : t('aria_mobile')}
         >
           <MessageCircle className="w-6 h-6 shrink-0" />
           <span
@@ -90,7 +92,7 @@ export function WhatsAppButton(): ReactNode {
               isExpanded ? 'opacity-100 max-w-xs' : 'opacity-0 max-w-0 overflow-hidden'
             }`}
           >
-            {t('whatsapp.chat_text')}
+            {t('chat_text')}
           </span>
         </button>
       </div>

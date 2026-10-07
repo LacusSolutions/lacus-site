@@ -8,7 +8,7 @@ interface UseInViewOptions {
 
 export function useInView(options: UseInViewOptions = {}): {
   isInView: boolean;
-  ref: RefObject<HTMLDivElement>;
+  ref: RefObject<HTMLDivElement | null>;
 } {
   const { threshold = 0.1, rootMargin = '0px 0px -100px 0px', triggerOnce = true } = options;
   const [isInView, setIsInView] = useState(false);

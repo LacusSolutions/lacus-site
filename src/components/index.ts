@@ -3,6 +3,7 @@ export * from './Contact';
 export * from './Footer';
 export * from './Header';
 export * from './Hero';
+export * from './Home';
 export * from './LanguageSwitcher';
 export * from './Projects';
 export * from './Services';

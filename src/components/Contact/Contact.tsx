@@ -1,13 +1,14 @@
+'use client';
+
 import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
-import { type ChangeEvent, type FormEvent, type ReactNode } from 'react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
+import { type ChangeEvent, type FormEvent, type ReactNode, useState } from 'react';
 
 import { Button } from '~/components/ui';
 import { useInView, useToast } from '~/hooks';
 
 export function Contact(): ReactNode {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const { ref: headerRef, isInView: headerInView } = useInView();
   const { ref: contentRef, isInView: contentInView } = useInView();
 
@@ -113,7 +114,7 @@ export function Contact(): ReactNode {
               <div className="bg-muted/50 p-6 rounded-lg">
                 <h4 className="font-bold mb-4">{t('contact.benefits.title')}</h4>
                 <div className="space-y-3">
-                  {(t('contact.benefits.items', { returnObjects: true }) as string[]).map(
+                  {(t.raw('contact.benefits.items') as string[]).map(
                     (benefit: string, idx: number) => (
                       <div key={idx} className="flex items-center gap-3">
                         <CheckCircle className="text-primary" size={16} />

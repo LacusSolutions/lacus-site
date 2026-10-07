@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "Início",
     "about": "Sobre",
     "services": "Serviços",
     "projects": "Projetos",
@@ -33,7 +34,27 @@
       "projects": "Projetos Concluídos",
       "experience": "Anos de Experiência",
       "success": "Taxa de Sucesso"
-    }
+    },
+    "mission_heading_prefix": "Nossa",
+    "mission_heading_highlight": "Missão",
+    "mission_p": "Democratizar o acesso à tecnologia de ponta, oferecendo soluções customizadas que se adaptam perfeitamente às necessidades específicas de cada cliente. Acreditamos que a tecnologia deve servir ao negócio, não o contrário.",
+    "mission_bullets": [
+      {
+        "title": "Inovação Constante:",
+        "text": "Mantemo-nos atualizados com as últimas tecnologias"
+      },
+      {
+        "title": "Qualidade Garantida:",
+        "text": "Rigorosos processos de teste e validação"
+      },
+      {
+        "title": "Suporte Dedicado:",
+        "text": "Acompanhamento completo antes, durante e após o projeto"
+      }
+    ],
+    "experience_title": "Experiência Comprovada",
+    "experience_p1": "Com mais de 5 anos no mercado, já entregamos soluções para empresas de diversos segmentos.",
+    "experience_p2": "Nossa equipe combina expertise técnica com visão de negócio, garantindo que cada projeto agregue valor real ao cliente."
   },
   "services": {
     "title": "Nossos Serviços",
@@ -84,7 +105,45 @@
     },
     "cta_title": "Pronto para começar seu projeto?",
     "cta_subtitle": "Vamos transformar sua ideia em realidade juntos",
-    "cta_button": "Começar Agora"
+    "cta_button": "Começar Agora",
+    "items": [
+      {
+        "title": "Sistema ERP Corporativo",
+        "description": "Desenvolvimento completo de sistema ERP para gestão empresarial com módulos financeiro, estoque e vendas.",
+        "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
+        "category": "web"
+      },
+      {
+        "title": "Aplicativo de Delivery",
+        "description": "App mobile completo para delivery com geolocalização, pagamentos integrados e painel administrativo.",
+        "tech": ["React Native", "Firebase", "Stripe", "Maps API"],
+        "category": "mobile"
+      },
+      {
+        "title": "Plataforma E-learning",
+        "description": "Sistema de ensino online com videoaulas, exercícios interativos e acompanhamento de progresso.",
+        "tech": ["Next.js", "TypeScript", "MongoDB", "Video.js"],
+        "category": "web"
+      },
+      {
+        "title": "Dashboard Analytics",
+        "description": "Painel de business intelligence com visualização de dados em tempo real e relatórios customizáveis.",
+        "tech": ["Vue.js", "D3.js", "Python", "Docker"],
+        "category": "web"
+      },
+      {
+        "title": "API de Integração",
+        "description": "Desenvolvimento de API robusta para integração entre sistemas legados e novas aplicações.",
+        "tech": ["Node.js", "Express", "Redis", "JWT"],
+        "category": "api"
+      },
+      {
+        "title": "Sistema IoT Industrial",
+        "description": "Solução IoT para monitoramento industrial com sensores, alertas automáticos e controle remoto.",
+        "tech": ["React", "MQTT", "InfluxDB", "Grafana"],
+        "category": "api"
+      }
+    ]
   },
   "contact": {
     "title": "Contato",
@@ -123,9 +182,30 @@
     "services_title": "Serviços",
     "copyright": "Todos os direitos reservados.",
     "privacy": "Política de Privacidade",
-    "terms": "Termos de Uso"
+    "terms": "Termos de Uso",
+    "services_list": [
+      "Desenvolvimento Web",
+      "Aplicativos Mobile",
+      "Sistemas Customizados",
+      "Cloud Computing",
+      "Consultoria Tech",
+      "Segurança Digital"
+    ]
   },
   "whatsapp": {
-    "chat_text": "Conversar no WhatsApp"
+    "chat_text": "Conversar no WhatsApp",
+    "qr_hint": "Escaneie para conversar",
+    "aria_mobile": "Conversar no WhatsApp"
+  },
+  "notFound": {
+    "title": "Página não encontrada (404) - Lacus",
+    "heading": "404",
+    "message": "Ops! Página não encontrada",
+    "link": "Voltar para o início"
+  },
+  "metadata": {
+    "title": "Lacus - Desenvolvimento de Software Customizado",
+    "description": "Transformamos ideias em soluções tecnológicas inovadoras. Especialistas em desenvolvimento de software customizado para empresas.",
+    "keywords": "desenvolvimento software, soluções customizadas, aplicativos web, mobile, consultoria tecnologia, lacus"
   }
 }
