@@ -68,7 +68,7 @@ export function Projects(): ReactNode {
               >
                 <div className="relative overflow-hidden h-48">
                   <Image
-                    src={PROJECT_IMAGES[index]}
+                    src={PROJECT_IMAGES[index % PROJECT_IMAGES.length]}
                     alt={`${project.title} - ${t(`projects.categories.${project.category}`)}`}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
