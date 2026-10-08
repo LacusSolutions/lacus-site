@@ -8,14 +8,22 @@ import { type ReactNode, useEffect, useId, useState } from 'react';
 import { LanguageSwitcher } from '~/components';
 import { useScrollPosition } from '~/hooks';
 import { Link } from '~/i18n/navigation';
+import { cn } from '~/lib/utils';
 
-const navLinkClassName =
-  'text-primary hover:text-primary/80 transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2';
+import {
+  getDesktopNavClasses,
+  getHeaderRootClasses,
+  getMobileNavLinkClasses,
+  getNavLinkClasses,
+  HEADER_DESKTOP_TRANSITION_CLASS,
+  HEADER_MOBILE_STATIC_CLASS,
+  HEADER_POSITION_CLASS,
+} from './Header.utils';
 
 export function Header(): ReactNode {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isScrolled = useScrollPosition(50);
+  const isScrolled = useScrollPosition(50, true);
   const mobileNavId = useId();
 
   const navItems = [
@@ -44,64 +52,63 @@ export function Header(): ReactNode {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-background border-b border-border transition-all duration-500 ${
-        isScrolled ? 'py-2' : 'py-4 md:py-8'
-      }`}
+      data-scrolled={isScrolled ? 'true' : 'false'}
+      className={cn('z-50', HEADER_POSITION_CLASS, getHeaderRootClasses(isScrolled))}
     >
       <div
-        className={`container mx-auto px-6 transition-all duration-500 ${
-          isScrolled ? 'py-2' : 'py-2 md:py-6'
-        }`}
+        className={cn(
+          'container mx-auto px-6',
+          HEADER_MOBILE_STATIC_CLASS,
+          HEADER_DESKTOP_TRANSITION_CLASS,
+        )}
       >
         {/* Desktop Layout */}
-        <div className="hidden md:block">
-          {/* Logo Section - Full width when expanded */}
+        <div
+          className="hidden md:flex md:items-center md:gap-x-8 lg:gap-x-12"
+          data-testid="header-desktop-row"
+        >
           <div
-            className={`transition-all duration-500 ${isScrolled ? 'mb-0' : 'mb-6 text-center'}`}
+            className={cn(
+              'inline-flex shrink-0 items-center gap-4',
+              HEADER_DESKTOP_TRANSITION_CLASS,
+            )}
           >
+            <Image
+              src="/brand/logo.png"
+              alt={t('a11y.logo_alt')}
+              width={64}
+              height={64}
+              className={cn(HEADER_DESKTOP_TRANSITION_CLASS, isScrolled ? 'h-8 w-8' : 'h-16 w-16')}
+              priority
+            />
             <div
-              className={`inline-flex items-center gap-4 transition-all duration-500 ${
-                isScrolled ? 'justify-start' : 'justify-center'
-              }`}
+              className={cn(
+                'flex items-center font-poppins font-bold text-primary',
+                HEADER_DESKTOP_TRANSITION_CLASS,
+                isScrolled ? 'h-8 text-2xl' : 'h-16 text-4xl',
+              )}
             >
-              <Image
-                src="/brand/logo.png"
-                alt={t('a11y.logo_alt')}
-                width={64}
-                height={64}
-                className={`transition-all duration-500 ${isScrolled ? 'w-8 h-8' : 'w-16 h-16'}`}
-                priority
-              />
-              <div
-                className={`font-poppins font-bold text-primary transition-all duration-500 flex items-center ${
-                  isScrolled ? 'text-2xl h-8' : 'text-4xl h-16'
-                }`}
-              >
-                Lacus
-              </div>
+              Lacus
             </div>
           </div>
 
-          {/* Navigation and Language Switcher */}
-          <div
-            className={`flex items-center transition-all duration-500 ${
-              isScrolled ? 'justify-between' : 'justify-center gap-16'
-            }`}
-          >
-            <nav className="flex items-center space-x-8" aria-label={t('nav.primary_label')}>
+          <div className="min-w-0 flex-1">
+            <nav className={getDesktopNavClasses(isScrolled)} aria-label={t('nav.primary_label')}>
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className={navLinkClassName}>
+                <Link key={item.href} href={item.href} className={getNavLinkClasses(isScrolled)}>
                   {item.label}
                 </Link>
               ))}
             </nav>
+          </div>
 
+          <div className="shrink-0">
             <LanguageSwitcher isScrolled={isScrolled} />
           </div>
         </div>
 
         {/* Mobile Layout */}
-        <div className="md:hidden flex items-center justify-between">
+        <div className="flex items-center justify-between md:hidden">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Image
@@ -109,10 +116,10 @@ export function Header(): ReactNode {
               alt={t('a11y.logo_alt')}
               width={32}
               height={32}
-              className="w-8 h-8"
+              className="h-8 w-8"
               priority
             />
-            <div className="font-poppins font-bold text-primary text-2xl h-8 flex items-center">
+            <div className="flex h-8 items-center font-poppins text-xl font-bold text-primary">
               Lacus
             </div>
           </div>
@@ -120,7 +127,7 @@ export function Header(): ReactNode {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="text-primary rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="rounded-sm text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? t('nav.close_menu') : t('nav.open_menu')}
             aria-expanded={isMenuOpen}
@@ -134,7 +141,7 @@ export function Header(): ReactNode {
         {isMenuOpen && (
           <nav
             id={mobileNavId}
-            className="md:hidden mt-4 pb-4 border-t border-border pt-4"
+            className="mt-4 border-t border-border pt-4 pb-4 md:hidden"
             aria-label={t('nav.mobile_label')}
           >
             <div className="flex flex-col space-y-4">
@@ -142,14 +149,14 @@ export function Header(): ReactNode {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={navLinkClassName}
+                  className={getMobileNavLinkClasses()}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
-              <div className="flex items-center gap-4">
-                <LanguageSwitcher />
+              <div className="flex justify-center pt-2">
+                <LanguageSwitcher menuAlign="center" />
               </div>
             </div>
           </nav>

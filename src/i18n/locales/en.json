@@ -15,6 +15,10 @@
     "skip_to_main": "Skip to main content",
     "logo_alt": "Lacus logo"
   },
+  "language_switcher": {
+    "flag_pt_alt": "Brazil flag",
+    "flag_en_alt": "United States flag"
+  },
   "hero": {
     "badge": "Innovative Technology Solutions",
     "title": "We Transform",
@@ -400,7 +404,9 @@
       },
       {
         "title": "11. Contact",
-        "body": ["Questions about these Terms: contact@lacus.solutions or +55 (41) 98518-7730."]
+        "body": [
+          "Questions about these Terms: contact@lacus.solutions or +55 (41) 98518-7730."
+        ]
       }
     ]
   },
