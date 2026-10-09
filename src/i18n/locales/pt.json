@@ -15,6 +15,10 @@
     "skip_to_main": "Ir para o conteúdo principal",
     "logo_alt": "Logotipo Lacus"
   },
+  "language_switcher": {
+    "flag_pt_alt": "Bandeira do Brasil",
+    "flag_en_alt": "Bandeira dos Estados Unidos"
+  },
   "hero": {
     "badge": "Soluções Tecnológicas Inovadoras",
     "title": "Transformamos",
@@ -400,7 +404,9 @@
       },
       {
         "title": "11. Contato",
-        "body": ["Dúvidas sobre estes Termos: contact@lacus.solutions ou +55 (41) 98518-7730."]
+        "body": [
+          "Dúvidas sobre estes Termos: contact@lacus.solutions ou +55 (41) 98518-7730."
+        ]
       }
     ]
   },

@@ -13,10 +13,6 @@ vi.mock('~/i18n/navigation', () => ({
   useRouter: () => ({ replace: vi.fn() }),
 }));
 
-vi.mock('~/hooks/useHeaderHeight', () => ({
-  useHeaderHeight: () => 80,
-}));
-
 import { Home } from './Home';
 
 describe('Home', () => {

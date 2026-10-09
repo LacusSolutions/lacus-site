@@ -13,7 +13,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "qa": "bun run lint --fix && bun run typecheck && bun run test"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.25",

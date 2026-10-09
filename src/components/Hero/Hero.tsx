@@ -39,7 +39,7 @@ export function Hero(): ReactNode {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-hero py-16 md:py-24"
     >
       {/* Background Image */}
       <div
