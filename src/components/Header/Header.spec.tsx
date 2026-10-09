@@ -81,7 +81,7 @@ describe('Header', () => {
     expect(within(row).getByRole('link', { name: en.nav.about }).className).toContain('text-lg');
   });
 
-  it('applies compact glass surface when scrolled', () => {
+  it('applies compact scrolled surface without backdrop blur when scrolled', () => {
     useScrollPositionMock.mockReturnValue(true);
     renderHeader();
 
