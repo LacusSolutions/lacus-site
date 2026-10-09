@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { type ReactNode } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -32,13 +32,16 @@ describe('LanguageSwitcher', () => {
     expect(trigger.querySelector('img[src="/flags/us.svg"]')).toBeInTheDocument();
   });
 
-  it('centers the dropdown when menuAlign is center', () => {
+  it('forwards menuAlign to the dropdown menu', () => {
     render(
       <NextIntlClientProvider locale="en" messages={en}>
-        <LanguageSwitcher menuAlign="center" />
+        <LanguageSwitcher menuAlign="end" />
       </NextIntlClientProvider>,
     );
-    expect(screen.getByRole('button', { name: /English/i })).toBeInTheDocument();
+    const trigger = screen.getByRole('button', { name: /English/i });
+    fireEvent.pointerDown(trigger, { button: 0, ctrlKey: false });
+    fireEvent.click(trigger);
+    expect(screen.getByRole('menu')).toHaveAttribute('data-align', 'end');
   });
 
   it('shows the locale flag when compact', () => {
